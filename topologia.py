@@ -17,21 +17,9 @@ class arvoreMultiNos(Topo):
             #Cria os links de cada host para o sw respectivo (sw0 recebe uma metade e sw1 a outra)
             #Como a topologia inicial possui apenas 3 switches é possível dividir os links da seguinte forma
             sw_dest = i//(nos//(switches - 1))
-            #Caso uma árvore mais complexa fosse utilizada esta parte deveria ser refeita
+            #Caso uma árvore mais complexa fosse utilizada esta parte deveria ser modificada
             self.addLink(host, 's%s' % sw_dest, bw=1000);
         self.addLink('s0', 's2')
         self.addLink('s1', 's2')
-
-#def main():
-#    topo = arvoreMultiNos()
-#    net = Mininet(topo = topo, link = TCLink)
-#    net.start()
-#    dumpNodeConnections(net.hosts)
-#    CLI(net)
-#    net.stop()
-
-
-#if __name__ == "__main__":
-#    main()
 
 topos = {'arvoreMultiNos' : arvoreMultiNos}
