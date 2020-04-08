@@ -7,19 +7,23 @@ from mininet.clean import Cleanup
 from topologia import arvoreMultiNos
 import time
 
-def iperfMultiNos(rede):
+def iperfMultiNos(rede, comportamento = 0):
     hosts = rede.hosts
     qtd_hosts = len(hosts)
-    for i in range(qtd_hosts):
-        #print(i, (i + qtd_hosts/2)%qtd_hosts)
-        hosts[i].cmd('sleep 0.5 && iperf -t 7 -c %s > /tmp/%s_send.out &' % (hosts[(i + qtd_hosts//2)%qtd_hosts].IP(), hosts[i]))
-        hosts[(i + qtd_hosts//2)%qtd_hosts].cmd('iperf -s &')
+    if comportamento == 0:
+        for i in range(qtd_hosts):
+            hosts[i].cmd('sleep 0.5 && iperf -t 7 -c %s > /tmp/%s_send.out &' % (hosts[(i + qtd_hosts//2)%qtd_hosts].IP(), hosts[i]))
+            hosts[(i + qtd_hosts//2)%qtd_hosts].cmd('iperf -s &')
 
-def carregarCPU(rede):
+def carregarCPU(rede, carga = 0):
     for h in rede.hosts:
-        h.cmd("stress-ng -t 8 -c 1 -l 50 &")
+        h.cmd("stress-ng -t 8 -c 1 -l %s &" % carga)
 
-def teste_latencia():
+def emitir_ping(rede, comportamento_sl = 0):
+    if comportamento_sl == 0:
+        print(rede.hosts[0].cmd('ping -c 5 %s' % rede.hosts[11].IP()))
+
+def teste_sl(comp_sl = 0, comp_iperf = 0, cpu = 0):
     Cleanup.cleanup()
     topo = arvoreMultiNos()
     rede = Mininet(topo = topo, host = CPULimitedHost, link = TCLink)
@@ -27,15 +31,11 @@ def teste_latencia():
     dumpNodeConnections(rede.hosts)
     print("Iniciando escrita dos dataplanes com repasse ICMP...")
     rede.pingAll()
-    ping_result = rede.hosts[0].cmd('ping -c 5 %s' % rede.hosts[11].IP())
-    print(ping_result)
-    #CLI(net)
-    #time.sleep(6)
+    emitir_ping(rede)
     carregarCPU(rede)
     iperfMultiNos(rede)
     time.sleep(3)
-    ping_result = rede.hosts[0].cmd('ping -c 5 %s' % rede.hosts[11].IP())
-    print(ping_result)
+    emitir_ping(rede)
     time.sleep(4.5)
     rede.stop()
     
@@ -44,3 +44,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+tests = {'teste_sl' : teste_sl}
