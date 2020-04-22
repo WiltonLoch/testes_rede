@@ -19,7 +19,7 @@ class arvoreMultiNos(Topo):
             sw_dest = i//(nos//(switches - 1))
             #Caso uma árvore mais complexa fosse utilizada esta parte deveria ser modificada
             self.addLink(host, 's%s' % sw_dest, bw=1000);
-        self.addLink('s0', 's2')
-        self.addLink('s1', 's2')
+        self.addLink('s0', 's2', bw = 1000)
+        self.addLink('s1', 's2', bw = 1000)
 
 topos = {'arvoreMultiNos' : arvoreMultiNos}
