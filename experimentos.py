@@ -7,6 +7,7 @@ from mininet.clean import Cleanup
 from topologia import arvoreMultiNos
 from testes import Testes
 from datetime import timedelta
+from pathlib import Path
 import time
 
 def rajadas_sl(rede, carga, execucoes = 1, intervalo = 0):
@@ -16,7 +17,9 @@ def rajadas_sl(rede, carga, execucoes = 1, intervalo = 0):
             time.sleep(intervalo)
         print("Executando teste %s/%s" % (i, execucoes), end = "\r")
         intermediario = Testes.emitir_sl(rede, carga, 0, 10)
-        print(intermediario)
+        if intermediario < timedelta(microseconds = 100):
+            exit()
+        #print(intermediario)
         resultados.append(intermediario)
     return resultados
 
@@ -44,6 +47,8 @@ def experimento():
         print("Não foi possível abrir o arquivo de configuração")
         return
     parametros = [x.split()[2:] for x in entrada.read().splitlines()]
+    entrada.close()
+
     execucoes = int(parametros[0][0])
     intervalo = float(parametros[1][0])
     cargas_sl = parametros[2]
@@ -53,21 +58,35 @@ def experimento():
     print("\n===================")
     print("\nDisparando SLs base\n")
     print("===================\n")
+
+    Path('resultados/baseline').mkdir(parents = True, exist_ok = True)
     for i in cargas_sl:
+        print("carga: " + i)
+        saida = open('resultados/baseline/%s' % i, 'w+')
         resultados = rajadas_sl(rede, i, execucoes, intervalo)
+        for j in resultados:
+            saida.write('%s\n' % str(j).split(':')[2])
         media = sum(resultados, timedelta(0))/len(resultados)
         print("\n", media)
+        saida.close()
+
     print("\n===========================")
     print("\nIniciando adição de tráfego\n")
     print("===========================\n")
+
     for i in cargas_trafego:
         print("Trafego adicional: " + i)
+        Path('resultados/%s' % i).mkdir(parents = True, exist_ok = True)
         for j in cargas_sl:
             print("Carga de teste: " + j)
+            saida = open('resultados/%s/%s' % (i, j), 'w+')
             Testes.iperfMultiNos(rede, i, 'bisection', tempo = execucoes*intervalo + 3)
-            resultados = rajadas_sl(rede, i, execucoes, intervalo)
+            resultados = rajadas_sl(rede, j, execucoes, intervalo)
+            for j in resultados:
+                saida.write('%s\n' % str(j).split(':')[2])
             media = sum(resultados, timedelta(0))/len(resultados)
             print("\n", media)
+            saida.close()
             time.sleep(5)
     rede.stop()
 

@@ -38,7 +38,9 @@ class Testes:
     @staticmethod
     def emitir_sl(rede, carga, origem, destino):
             rede.hosts[destino].cmd('(socat -u TCP-LISTEN:5440 stdout | wc -c) >> /tmp/sl_bytes.out &')
-            tempos = rede.hosts[origem].cmd('sleep 0.5 && tail -c ' + carga + ' data | socat -lu -ddd -u stdin TCP-CONNECT:%s:5440' % rede.hosts[destino].IP()).rsplit('socket', 1)[0].split('reading', 1)[1].splitlines()
+            tempos = rede.hosts[origem].cmd('sleep 0.5 && tail -c ' + carga + ' data | socat -lu -ddd -u stdin TCP-CONNECT:%s:5440' % rede.hosts[destino].IP())
+            #print(tempos)
+            tempos = tempos.rsplit('socket', 1)[0].split('reading', 1)[1].splitlines()
             tempo_inicial, tempo_final = tempos[1], tempos[-1]
             tempo_inicial = [float(x) for x in tempo_inicial.split()[1].split(':')]
             tempo_final = [float(x) for x in tempo_final.split()[1].split(':')]
