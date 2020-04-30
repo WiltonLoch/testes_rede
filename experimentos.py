@@ -8,12 +8,15 @@ from topologia import arvoreMultiNos
 from testes import Testes
 from datetime import timedelta
 from pathlib import Path
+
 import time
 
-def rajadas_sl(rede, carga, execucoes = 1, intervalo = 0):
+def rajadas_sl(rede, carga, execucoes = 1, intervalo = 0, aquecimento = 0):
     resultados = []
     for i in range(1, execucoes + 1):
-        if intervalo:
+        if i == 1:
+            time.sleep(aquecimento)
+        elif intervalo:
             time.sleep(intervalo)
         print("Executando teste %s/%s" % (i, execucoes), end = "\r")
         intermediario = Testes.emitir_sl(rede, carga, 0, 10)
@@ -21,6 +24,7 @@ def rajadas_sl(rede, carga, execucoes = 1, intervalo = 0):
             exit()
         #print(intermediario)
         resultados.append(intermediario)
+    print("")
     return resultados
 
 def experimento():
@@ -33,6 +37,12 @@ def experimento():
     print("\n===============================")
     print("\nPreparando o ambiente de testes\n")
     print("===============================\n")
+
+    print("Modificando o controle de congestionamento para DCTCP...")
+    print("Ativando as marcações ECN...")
+
+    for i in rede.hosts:
+        i.cmd("sysctl -w net.ipv4.tcp_congestion_control=dctcp; sysctl -w net.ipv4.tcp_ecn=1")
 
     for i in range(0, 10):
         print("h%s <-> h%s -- " % (i, i + 10), end = "")
@@ -51,8 +61,9 @@ def experimento():
 
     execucoes = int(parametros[0][0])
     intervalo = float(parametros[1][0])
-    cargas_sl = parametros[2]
-    cargas_trafego = parametros[3]
+    aquecimento = float(parametros[2][0])
+    cargas_sl = parametros[3]
+    cargas_trafego = parametros[4]
     del parametros
 
     print("\n===================")
@@ -80,12 +91,18 @@ def experimento():
         for j in cargas_sl:
             print("Carga de teste: " + j)
             saida = open('resultados/%s/%s' % (i, j), 'w+')
-            Testes.iperfMultiNos(rede, i, 'bisection', tempo = execucoes*intervalo + 3)
-            resultados = rajadas_sl(rede, j, execucoes, intervalo)
-            for j in resultados:
-                saida.write('%s\n' % str(j).split(':')[2])
+
+            Testes.iperfMultiNos(rede, i, 'bisection', tempo = 1000)
+            resultados = rajadas_sl(rede, j, execucoes, intervalo, aquecimento)
+            print("Interrompendo iperfs")
+            Testes.interromperIperf(rede)
+
+            for k in resultados:
+                saida.write('%s\n' % str(k).split(':')[2])
+
             media = sum(resultados, timedelta(0))/len(resultados)
             print("\n", media)
+            print(" --------------- ")
             saida.close()
             time.sleep(5)
     rede.stop()

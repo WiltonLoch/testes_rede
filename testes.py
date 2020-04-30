@@ -6,6 +6,7 @@ from mininet.link import TCLink
 from mininet.clean import Cleanup
 from topologia import arvoreMultiNos
 from datetime import timedelta
+from pathlib import Path
 import time
 
 class Testes:
@@ -18,22 +19,30 @@ class Testes:
         return str(carga_numerica) + carga[-1]
 
     @classmethod
-    def iperfMultiNos(cls, rede, carga, comportamento, tempo = 10):
+    def iperfMultiNos(cls, rede, carga, comportamento, controle_congest = "dctcp", tempo = 10):
         hosts = rede.hosts
         qtd_hosts = len(hosts)
-        flags = '--time %s' % tempo
+        flags = '--time %s --congestion %s' % (tempo, controle_congest)
         if comportamento == 'bisection':
             if carga:
+                caminho_saida = 'transfs_iperf/' + carga
+                Path(caminho_saida).mkdir(parents = True, exist_ok = True)
                 carga = '--bitrate ' + cls.dividirCarga(carga, qtd_hosts)
+                print(carga)
             for i in range(qtd_hosts//2):
-                hosts[(i + qtd_hosts//2)%qtd_hosts].cmd('iperf3 --server > /tmp/h%s_rcv.out &' % ((i + qtd_hosts//2)%qtd_hosts))
-                hosts[i].cmd('iperf3 ' + carga + ' --client %s --bidir ' % hosts[(i + qtd_hosts//2)%qtd_hosts].IP() + flags + ' > /tmp/%s_send.out &' % hosts[i])
+                hosts[(i + qtd_hosts//2)%qtd_hosts].cmd('iperf3 --server >> ' + caminho_saida + '/h%s_rcv.out &' % ((i + qtd_hosts//2)%qtd_hosts))
+                hosts[i].cmd('iperf3 ' + carga + ' --client %s --bidir ' % hosts[(i + qtd_hosts//2)%qtd_hosts].IP() + flags + ' >> ' + caminho_saida + '/%s_send.out &' % hosts[i])
+
+    @staticmethod
+    def interromperIperf(rede):
+        hosts = rede.hosts
+        for i in range(0, len(hosts)):
+            hosts[i].cmd('pkill iperf3')
 
     @staticmethod
     def carregarCPU(rede, carga = 0):
         for h in rede.hosts:
             h.cmd("stress-ng -t 8 -c 1 -l %s &" % carga)
-
 
     @staticmethod
     def emitir_sl(rede, carga, origem, destino):
