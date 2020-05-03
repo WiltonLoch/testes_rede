@@ -19,7 +19,7 @@ class Testes:
         return str(carga_numerica) + carga[-1]
 
     @classmethod
-    def iperfMultiNos(cls, rede, carga, comportamento, controle_congest = "dctcp", tempo = 10):
+    def iperfMultiNos(cls, rede, carga, comportamento, tempo = 10, controle_congest = "dctcp"):
         hosts = rede.hosts
         qtd_hosts = len(hosts)
         flags = '--time %s --congestion %s' % (tempo, controle_congest)
@@ -46,9 +46,9 @@ class Testes:
 
     @staticmethod
     def emitir_sl(rede, carga, origem, destino):
-            rede.hosts[destino].cmd('(socat -u TCP-LISTEN:5440 stdout | wc -c) >> /tmp/sl_bytes.out &')
+            rede.hosts[destino].cmd('(socat -u TCP-LISTEN:5440,reuseaddr stdout | wc -c) >> /tmp/sl_bytes.out &')
             tempos = rede.hosts[origem].cmd('sleep 0.5 && tail -c ' + carga + ' data | socat -lu -ddd -u stdin TCP-CONNECT:%s:5440' % rede.hosts[destino].IP())
-            #print(tempos)
+            print(tempos)
             tempos = tempos.rsplit('socket', 1)[0].split('reading', 1)[1].splitlines()
             tempo_inicial, tempo_final = tempos[1], tempos[-1]
             tempo_inicial = [float(x) for x in tempo_inicial.split()[1].split(':')]
