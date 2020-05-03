@@ -18,8 +18,8 @@ class arvoreMultiNos(Topo):
             #Como a topologia inicial possui apenas 3 switches é possível dividir os links da seguinte forma
             sw_dest = i//(nos//(switches - 1))
             #Caso uma árvore mais complexa fosse utilizada esta parte deveria ser modificada
-            self.addLink(host, 's%s' % sw_dest, delay = '1ms');
-        self.addLink('s0', 's2', delay = '1ms')
-        self.addLink('s1', 's2', delay = '1ms')
+            self.addLink(host, 's%s' % sw_dest, delay = '1ms', bw = 1000);
+        self.addLink('s0', 's2', delay = '1ms', bw = 1000)
+        self.addLink('s1', 's2', delay = '1ms', bw = 1000)
 
 topos = {'arvoreMultiNos' : arvoreMultiNos}

@@ -38,11 +38,11 @@ def experimento():
     print("\nPreparando o ambiente de testes\n")
     print("===============================\n")
 
-    #print("Modificando o controle de congestionamento para DCTCP...")
-    #print("Ativando as marcações ECN...")
+    print("Modificando o controle de congestionamento para DCTCP...")
+    print("Ativando as marcações ECN...")
 
-    #for i in rede.hosts:
-    #    i.cmd("sysctl -w net.ipv4.tcp_congestion_control=dctcp; sysctl -w net.ipv4.tcp_ecn=1")
+    for i in rede.hosts:
+        i.cmd("sysctl -w net.ipv4.tcp_congestion_control=dctcp; sysctl -w net.ipv4.tcp_ecn=1")
 
     for i in range(0, 10):
         print("h%s <-> h%s -- " % (i, i + 10), end = "")
