@@ -13,7 +13,7 @@ class arvoreMultiNos(Topo):
             host = self.addHost('h%s' % i, cpu=0.8/nos)
             #Cria os switches no mesmo loop já que sw <= nodes
             if(i < switches):
-                print(self.addSwitch('s%s' % i))
+                self.addSwitch('s%s' % i)
             #Cria os links de cada host para o sw respectivo (sw0 recebe uma metade e sw1 a outra)
             #Como a topologia inicial possui apenas 3 switches é possível dividir os links da seguinte forma
             sw_dest = i//(nos//(switches - 1))

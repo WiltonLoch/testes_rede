@@ -116,10 +116,74 @@ resumo_dados = data.frame(
 		)
 	)
 
+
+desvio_padrao = data.frame(
+	t1K = c(
+		sd(dados1K$baseline),
+		sd(dados1K$c250m),
+		sd(dados1K$c500m),
+		sd(dados1K$c1G),
+		sd(dados1K$c5G),
+		sd(dados1K$c10G),
+		sd(dados1K$c20G)
+		),
+	t10K = c(
+		sd(dados10K$baseline),
+		sd(dados10K$c250m),
+		sd(dados10K$c500m),
+		sd(dados10K$c1G),
+		sd(dados10K$c5G),
+		sd(dados10K$c10G),
+		sd(dados10K$c20G)
+		),
+	t100K = c(
+		sd(dados100K$baseline),
+		sd(dados100K$c250m),
+		sd(dados100K$c500m),
+		sd(dados100K$c1G),
+		sd(dados100K$c5G),
+		sd(dados100K$c10G),
+		sd(dados100K$c20G)
+		),
+	t1M = c(
+		sd(dados1M$baseline),
+		sd(dados1M$c250m),
+		sd(dados1M$c500m),
+		sd(dados1M$c1G),
+		sd(dados1M$c5G),
+		sd(dados1M$c10G),
+		sd(dados1M$c20G)
+		),
+	t10M = c(
+		sd(dados10M$baseline),
+		sd(dados10M$c250m),
+		sd(dados10M$c500m),
+		sd(dados10M$c1G),
+		sd(dados10M$c5G),
+		sd(dados10M$c10G),
+		sd(dados10M$c20G)
+		),
+	t20M = c(
+		sd(dados20M$baseline),
+		sd(dados20M$c250m),
+		sd(dados20M$c500m),
+		sd(dados20M$c1G),
+		sd(dados20M$c5G),
+		sd(dados20M$c10G),
+		sd(dados20M$c20G)
+		)
+	)
+
+inferior <- c(t((resumo_dados - desvio_padrao)))
+superior <- c(t((resumo_dados + desvio_padrao)))
+
 cores = c('#3333CC', '#CC0000', '#33FF00', '#990066', '#FFFF33', '#336633')#, '#FF9933')
-simbolos = 0:6
+simbolos = 0:5
+posx_sd = rep(1:nrow(resumo_dados), each = ncol(resumo_dados))
 rev(simbolos)
-matplot(resumo_dados, type = "b", xlab = "Tráfego adicional no gargalo(bps)", ylab = "FCT(s)", ylim = c(0,12), col = cores, pch = simbolos, axes = F )
+matplot(resumo_dados, type = "b", xlab = "Tráfego adicional no gargalo(bps)", ylab = "FCT(s)", ylim = c(0,12), col = cores, pch = simbolos, axes = F)
+arrows(posx_sd, inferior, posx_sd, superior, col = cores, angle = 90, code = 3, length = 0.03)
 axis(side = 2)
 axis(side = 1, at=1:nrow(resumo_dados), labels = c('Sem carga', '250M', '500M', '1G', '5G', '10G', '20G'))
 legend("left", legend = rev(c('1K', '10K', '100K', '1M', '10M', '20M')), col = rev(cores), pch = rev(simbolos), lwd = 1)
+

@@ -4,8 +4,8 @@ dados1K = data.frame(
 		c500m = scan('resultados/500M/1K'),
 		c1G = scan('resultados/1G/1K'),
 		c5G = scan('resultados/5G/1K'),
-		c10G = scan('resultados/10G/1K'),
-		c20G = scan('resultados/20G/1K')
+		#c10G = scan('resultados/10G/1K'),
+		#c20G = scan('resultados/20G/1K')
 )
 
 dados10K = data.frame(
@@ -14,8 +14,8 @@ dados10K = data.frame(
 		c500m = scan('resultados/500M/10K'),
 		c1G = scan('resultados/1G/10K'),
 		c5G = scan('resultados/5G/10K'),
-		c10G = scan('resultados/10G/10K'),
-		c20G = scan('resultados/20G/10K')
+		#c10G = scan('resultados/10G/10K'),
+		#c20G = scan('resultados/20G/10K')
 )
 
 dados100K = data.frame(
@@ -24,8 +24,8 @@ dados100K = data.frame(
 		c500m = scan('resultados/500M/100K'),
 		c1G = scan('resultados/1G/100K'),
 		c5G = scan('resultados/5G/100K'),
-		c10G = scan('resultados/10G/100K'),
-		c20G = scan('resultados/20G/100K')
+		#c10G = scan('resultados/10G/100K'),
+		#c20G = scan('resultados/20G/100K')
 )
 
 dados1M = data.frame(
@@ -34,8 +34,8 @@ dados1M = data.frame(
 		c500m = scan('resultados/500M/1M'),
 		c1G = scan('resultados/1G/1M'),
 		c5G = scan('resultados/5G/1M'),
-		c10G = scan('resultados/10G/1M'),
-		c20G = scan('resultados/20G/1M')
+		#c10G = scan('resultados/10G/1M'),
+		#c20G = scan('resultados/20G/1M')
 )
 
 dados10M = data.frame(
@@ -44,8 +44,8 @@ dados10M = data.frame(
 		c500m = scan('resultados/500M/10M'),
 		c1G = scan('resultados/1G/10M'),
 		c5G = scan('resultados/5G/10M'),
-		c10G = scan('resultados/10G/10M'),
-		c20G = scan('resultados/20G/10M')
+		#c10G = scan('resultados/10G/10M'),
+		#c20G = scan('resultados/20G/10M')
 )
 
 dados20M = data.frame(
@@ -54,8 +54,8 @@ dados20M = data.frame(
 		c500m = scan('resultados/500M/20M'),
 		c1G = scan('resultados/1G/20M'),
 		c5G = scan('resultados/5G/20M'),
-		c10G = scan('resultados/10G/20M'),
-		c20G = scan('resultados/20G/20M')
+		#c10G = scan('resultados/10G/20M'),
+		#c20G = scan('resultados/20G/20M')
 )
 
 
@@ -66,8 +66,8 @@ resumo_dados = data.frame(
 		mean(dados1K$c500m),
 		mean(dados1K$c1G),
 		mean(dados1K$c5G),
-		mean(dados1K$c10G),
-		mean(dados1K$c20G)
+		#mean(dados1K$c10G),
+		#mean(dados1K$c20G)
 		),
 	t10K = c(
 		mean(dados10K$baseline),
@@ -75,8 +75,8 @@ resumo_dados = data.frame(
 		mean(dados10K$c500m),
 		mean(dados10K$c1G),
 		mean(dados10K$c5G),
-		mean(dados10K$c10G),
-		mean(dados10K$c20G)
+		#mean(dados10K$c10G),
+		#mean(dados10K$c20G)
 		),
 	t100K = c(
 		mean(dados100K$baseline),
@@ -84,8 +84,8 @@ resumo_dados = data.frame(
 		mean(dados100K$c500m),
 		mean(dados100K$c1G),
 		mean(dados100K$c5G),
-		mean(dados100K$c10G),
-		mean(dados100K$c20G)
+		#mean(dados100K$c10G),
+		#mean(dados100K$c20G)
 		),
 	t1M = c(
 		mean(dados1M$baseline),
@@ -93,8 +93,8 @@ resumo_dados = data.frame(
 		mean(dados1M$c500m),
 		mean(dados1M$c1G),
 		mean(dados1M$c5G),
-		mean(dados1M$c10G),
-		mean(dados1M$c20G)
+		#mean(dados1M$c10G),
+		#mean(dados1M$c20G)
 		),
 	t10M = c(
 		mean(dados10M$baseline),
@@ -102,8 +102,8 @@ resumo_dados = data.frame(
 		mean(dados10M$c500m),
 		mean(dados10M$c1G),
 		mean(dados10M$c5G),
-		mean(dados10M$c10G),
-		mean(dados10M$c20G)
+		#mean(dados10M$c10G),
+		#mean(dados10M$c20G)
 		),
 	t20M = c(
 		mean(dados20M$baseline),
@@ -111,8 +111,8 @@ resumo_dados = data.frame(
 		mean(dados20M$c500m),
 		mean(dados20M$c1G),
 		mean(dados20M$c5G),
-		mean(dados20M$c10G),
-		mean(dados20M$c20G)
+		#mean(dados20M$c10G),
+		#mean(dados20M$c20G)
 		)
 	)
 
@@ -124,8 +124,8 @@ desvio_padrao = data.frame(
 		sd(dados1K$c500m),
 		sd(dados1K$c1G),
 		sd(dados1K$c5G),
-		sd(dados1K$c10G),
-		sd(dados1K$c20G)
+		#sd(dados1K$c10G),
+		#sd(dados1K$c20G)
 		),
 	t10K = c(
 		sd(dados10K$baseline),
@@ -133,8 +133,8 @@ desvio_padrao = data.frame(
 		sd(dados10K$c500m),
 		sd(dados10K$c1G),
 		sd(dados10K$c5G),
-		sd(dados10K$c10G),
-		sd(dados10K$c20G)
+		#sd(dados10K$c10G),
+		#sd(dados10K$c20G)
 		),
 	t100K = c(
 		sd(dados100K$baseline),
@@ -142,8 +142,8 @@ desvio_padrao = data.frame(
 		sd(dados100K$c500m),
 		sd(dados100K$c1G),
 		sd(dados100K$c5G),
-		sd(dados100K$c10G),
-		sd(dados100K$c20G)
+		#sd(dados100K$c10G),
+		#sd(dados100K$c20G)
 		),
 	t1M = c(
 		sd(dados1M$baseline),
@@ -151,8 +151,8 @@ desvio_padrao = data.frame(
 		sd(dados1M$c500m),
 		sd(dados1M$c1G),
 		sd(dados1M$c5G),
-		sd(dados1M$c10G),
-		sd(dados1M$c20G)
+		#sd(dados1M$c10G),
+		#sd(dados1M$c20G)
 		),
 	t10M = c(
 		sd(dados10M$baseline),
@@ -160,8 +160,8 @@ desvio_padrao = data.frame(
 		sd(dados10M$c500m),
 		sd(dados10M$c1G),
 		sd(dados10M$c5G),
-		sd(dados10M$c10G),
-		sd(dados10M$c20G)
+		#sd(dados10M$c10G),
+		#sd(dados10M$c20G)
 		),
 	t20M = c(
 		sd(dados20M$baseline),
@@ -169,8 +169,8 @@ desvio_padrao = data.frame(
 		sd(dados20M$c500m),
 		sd(dados20M$c1G),
 		sd(dados20M$c5G),
-		sd(dados20M$c10G),
-		sd(dados20M$c20G)
+		#sd(dados20M$c10G),
+		#sd(dados20M$c20G)
 		)
 	)
 

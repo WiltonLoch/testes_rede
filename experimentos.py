@@ -2,8 +2,9 @@ from mininet.net import Mininet
 from mininet.util import dumpNodeConnections
 from mininet.cli import CLI
 from mininet.node import CPULimitedHost
-from mininet.link import TCLink
+from mininet.link import TCLink, TCIntf
 from mininet.clean import Cleanup
+from mininet.util import custom
 from topologia import arvoreMultiNos
 from testes import Testes
 from datetime import timedelta
@@ -30,8 +31,12 @@ def rajadas_sl(rede, carga, execucoes = 1, intervalo = 0, aquecimento = 0):
 def experimento():
     Cleanup.cleanup()
     topo = arvoreMultiNos()
-    rede = Mininet(topo = topo, host = CPULimitedHost, link = TCLink)
+    rede = Mininet(topo = topo, host = CPULimitedHost, intf = custom(TCIntf, enable_ecn = True), link = TCLink)
     rede.start()
+    switches = rede.switches
+    for i in switches:
+        for intf in i.intfs.values():
+            print(intf.params)
     dumpNodeConnections(rede.hosts)
 
     print("\n===============================")
