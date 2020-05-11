@@ -4,22 +4,31 @@ from mininet.node import CPULimitedHost
 from mininet.util import dumpNodeConnections
 from mininet.cli import CLI
 from mininet.link import TCLink
+import math
 
 class arvoreMultiNos(Topo):
-    "Topologia destinada a criacao de uma arvore tree-tier com quantidade arbitraria de nos e switches"
-    def build(self, switches=3, nos=20):
+    "Topologia destinada a criacao de uma arvore binária completa com profundidade arbitraria"
+    def build(self, switches = 7, nos = 20):
+        profundidade_arvore = int(math.log(switches + 1, 2))
+        sws_ultimo_nivel = pow(2, profundidade_arvore - 1)
         for i in range(nos):
             #Cria os hosts de acordo com o índice
             host = self.addHost('h%s' % i, cpu=0.8/nos)
             #Cria os switches no mesmo loop já que sw <= nodes
             if(i < switches):
                 self.addSwitch('s%s' % i)
-            #Cria os links de cada host para o sw respectivo (sw0 recebe uma metade e sw1 a outra)
+            #Cria os links de cada host para o sw respectivo (sw0-3 recebem 5 hosts cada)
             #Como a topologia inicial possui apenas 3 switches é possível dividir os links da seguinte forma
-            sw_dest = i//(nos//(switches - 1))
+            #O log define a altura da árvore, o ^2 a quantidade de nós no último nível. Divide-se a quantidade de hosts pela quantidade de nós no último nível para se descobrir a quantidade de hosts por nó. Por fim, divisão inteira do índice pelo tamanho do intervalo.
+            sw_dest = i//(nos//sws_ultimo_nivel)
             #Caso uma árvore mais complexa fosse utilizada esta parte deveria ser modificada
             self.addLink(host, 's%s' % sw_dest, delay = '1ms', bw = 1000);
-        self.addLink('s0', 's2', delay = '1ms', bw = 1000)
-        self.addLink('s1', 's2', delay = '1ms', bw = 1000)
+
+        sw_dest = sws_ultimo_nivel - 1
+        #switches - 1 pois o último sw não cria link com nenhum outro 
+        for i in range(switches - 1):
+            if(i % 2 == 0):
+                sw_dest += 1
+            self.addLink('s%s' % str(i), 's%s' % sw_dest, delay = '1ms', bw = 1000)
 
 topos = {'arvoreMultiNos' : arvoreMultiNos}
