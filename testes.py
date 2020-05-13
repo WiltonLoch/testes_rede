@@ -45,17 +45,27 @@ class Testes:
             h.cmd("stress-ng -t 8 -c 1 -l %s &" % carga)
 
     @staticmethod
-    def emitir_sl(rede, carga, origem, destino):
-            rede.hosts[destino].cmd('(socat -u TCP-LISTEN:5440,reuseaddr stdout | wc -c) >> /tmp/sl_bytes.out &')
-            tempos = rede.hosts[origem].cmd('sleep 0.5 && tail -c ' + carga + ' data | socat -lu -ddd -u stdin TCP-CONNECT:%s:5440' % rede.hosts[destino].IP())
-            print(tempos)
-            tempos = tempos.rsplit('socket', 1)[0].split('reading', 1)[1].splitlines()
-            tempo_inicial, tempo_final = tempos[1], tempos[-1]
-            tempo_inicial = [float(x) for x in tempo_inicial.split()[1].split(':')]
-            tempo_final = [float(x) for x in tempo_final.split()[1].split(':')]
-            tempo_inicial = timedelta(hours = tempo_inicial[0], minutes = tempo_inicial[1], seconds = tempo_inicial[2])
-            tempo_final = timedelta(hours = tempo_final[0], minutes = tempo_final[1], seconds = tempo_final[2])
-            return tempo_final - tempo_inicial
+    def emitir_sl(rede, carga, origem, destino, bloqueante = True, saida = ''):
+            rede.hosts[destino].cmd('(socat -u TCP-LISTEN:5440,reuseaddr stdout | wc -c) &')
+            comando_cliente = 'sleep 0.3 && tail -c ' + carga + ' data | socat -lu -ddd -u stdin TCP-CONNECT:%s:5440' % rede.hosts[destino].IP()
+            if(not bloqueante):
+                if(saida):
+                    Path('dados_brutos/').mkdir(parents = True, exist_ok = True)
+                    comando_cliente += ' & ' + ' >> dados_brutos/' + saida
+                else:
+                    print("Erro: Chamadas SL não bloqueantes precisam de um arquivo de saída")
+                    exit()
+            tempos = rede.hosts[origem].cmd(comando_cliente)
+            if(bloqueante):
+                print(tempos)
+                tempos = tempos.rsplit('socket', 1)[0].split('reading', 1)[1].splitlines()
+                tempo_inicial, tempo_final = tempos[1], tempos[-1]
+                tempo_inicial = [float(x) for x in tempo_inicial.split()[1].split(':')]
+                tempo_final = [float(x) for x in tempo_final.split()[1].split(':')]
+                tempo_inicial = timedelta(hours = tempo_inicial[0], minutes = tempo_inicial[1], seconds = tempo_inicial[2])
+                tempo_final = timedelta(hours = tempo_final[0], minutes = tempo_final[1], seconds = tempo_final[2])
+                return tempo_final - tempo_inicial
+
 
 #if __name__ == '__main__':
 #    main()

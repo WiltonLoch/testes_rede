@@ -17,6 +17,23 @@ def experimento():
     topo = arvoreMultiNos()
     rede = Mininet(topo = topo, host = CPULimitedHost, intf = custom(TCIntf, enable_ecn = True), link = TCLink)
     rede.start()
+
+    print("\n===============================")
+    print("\nPreparando o ambiente de testes\n")
+    print("===============================\n")
+
+    print("Modificando o controle de congestionamento para DCTCP...")
+    print("Ativando as marcações ECN...")
+
+    for i in rede.hosts:
+        i.cmd("sysctl -w net.ipv4.tcp_congestion_control=dctcp; sysctl -w net.ipv4.tcp_ecn=1")
+
+    for i in range(0, 10):
+        print("h%s <-> h%s -- " % (i, i + 10), end = "")
+        print(Testes.emitir_sl(rede, '1K', i, i + 10))
+
+
+
     dumpNodeConnections(rede.hosts)
 
     rede.stop()
