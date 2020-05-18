@@ -45,10 +45,16 @@ class Testes:
             h.cmd("stress-ng -t 8 -c 1 -l %s &" % carga)
 
     @staticmethod
-    def emitir_sl(rede, carga, origem, destino):
+    def emitir_sl(rede, carga, origem, destino, saida = ''):
             rede.hosts[destino].cmd('(socat -u TCP-LISTEN:5440,reuseaddr stdout | wc -c) >> /tmp/sl_bytes.out &')
             tempos = rede.hosts[origem].cmd('sleep 0.5 && tail -c ' + carga + ' data | socat -lu -ddd -u stdin TCP-CONNECT:%s:5440' % rede.hosts[destino].IP())
-            print(tempos)
+            #print(tempos)
+            if(saida):
+                arquivo_saida = open(saida, 'w+')
+                if(arquivo_saida.mode != 'w+'):
+                    print("Erro ao abrir o arquivo de saída", saida)
+                    return
+                arquivo_saida.write(tempos)
             tempos = tempos.rsplit('socket', 1)[0].split('reading', 1)[1].splitlines()
             tempo_inicial, tempo_final = tempos[1], tempos[-1]
             tempo_inicial = [float(x) for x in tempo_inicial.split()[1].split(':')]
