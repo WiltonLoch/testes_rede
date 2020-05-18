@@ -1,16 +1,12 @@
-2020/05/15 22:34:37.832601 socat[423969] I socat by Gerhard Rieger and contributors - see www.dest-unreach.org
-2020/05/15 22:34:37.832671 socat[423969] I This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit. (http://www.openssl.org/)
-2020/05/15 22:34:37.832680 socat[423969] I This product includes software written by Tim Hudson (tjh@cryptsoft.com)
-2020/05/15 22:34:37.832703 socat[423969] N using stdin for reading
-2020/05/15 22:34:37.832733 socat[423969] N opening connection to AF=2 10.0.0.13:5440
-2020/05/15 22:34:37.832740 socat[423969] I starting connect loop
-2020/05/15 22:34:37.832755 socat[423969] I socket(2, 1, 6) -> 6
-2020/05/15 22:34:37.981950 socat[423969] N successfully connected from local address AF=2 10.0.0.16:46538
-2020/05/15 22:34:37.981986 socat[423969] I resolved and opened all sock addresses
-2020/05/15 22:34:37.982004 socat[423969] N starting data transfer loop with FDs [0,0] and [6,6]
-2020/05/15 22:34:37.982062 socat[423969] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.982095 socat[423969] I transferred 2048 bytes from 0 to 6
-2020/05/15 22:34:37.982110 socat[423969] N socket 1 (fd 0) is at EOF
-2020/05/15 22:34:37.982118 socat[423969] I shutdown(6, 1)
-2020/05/15 22:34:37.982132 socat[423969] I shutdown(6, 2)
-2020/05/15 22:34:37.982142 socat[423969] N exiting with status 0
+2020/05/18 16:00:47.964189 socat[127257] I socat by Gerhard Rieger and contributors - see www.dest-unreach.org
+2020/05/18 16:00:47.964266 socat[127257] I This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit. (http://www.openssl.org/)
+2020/05/18 16:00:47.964276 socat[127257] I This product includes software written by Tim Hudson (tjh@cryptsoft.com)
+2020/05/18 16:00:47.964300 socat[127257] N using stdin for reading
+2020/05/18 16:00:47.964332 socat[127257] N opening connection to AF=2 10.0.0.18:5440
+2020/05/18 16:00:47.964341 socat[127257] I starting connect loop
+2020/05/18 16:00:47.964356 socat[127257] I socket(2, 1, 6) -> 6
+2020/05/18 16:00:48.145492 socat[127257] N socat_signal(): handling signal 1
+2020/05/18 16:00:48.145497 socat[127257] N exiting on signal 1
+2020/05/18 16:00:48.145499 socat[127257] N socat_signal(): finishing signal 1
+2020/05/18 16:00:48.145556 socat[127257] N exit(129)
+2020/05/18 16:00:48.145565 socat[127257] I shutdown(6, 2)

@@ -1,27 +1,27 @@
-2020/05/15 22:33:16.183792 socat[418648] I socat by Gerhard Rieger and contributors - see www.dest-unreach.org
-2020/05/15 22:33:16.183910 socat[418648] I This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit. (http://www.openssl.org/)
-2020/05/15 22:33:16.183925 socat[418648] I This product includes software written by Tim Hudson (tjh@cryptsoft.com)
-2020/05/15 22:33:16.183960 socat[418648] N using stdin for reading
-2020/05/15 22:33:16.184015 socat[418648] N opening connection to AF=2 10.0.0.9:5440
-2020/05/15 22:33:16.184027 socat[418648] I starting connect loop
-2020/05/15 22:33:16.184049 socat[418648] I socket(2, 1, 6) -> 6
-2020/05/15 22:33:16.231035 socat[418648] N successfully connected from local address AF=2 10.0.0.4:43258
-2020/05/15 22:33:16.231073 socat[418648] I resolved and opened all sock addresses
-2020/05/15 22:33:16.231090 socat[418648] N starting data transfer loop with FDs [0,0] and [6,6]
-2020/05/15 22:33:16.231168 socat[418648] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:33:16.231223 socat[418648] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:33:16.231261 socat[418648] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:33:16.231288 socat[418648] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:33:16.231323 socat[418648] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:33:16.231353 socat[418648] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:33:16.231372 socat[418648] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:33:16.241533 socat[418648] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:33:16.250207 socat[418648] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:33:16.257980 socat[418648] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:33:16.258073 socat[418648] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:33:16.258123 socat[418648] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:33:16.258175 socat[418648] I transferred 4096 bytes from 0 to 6
-2020/05/15 22:33:16.258207 socat[418648] N socket 1 (fd 0) is at EOF
-2020/05/15 22:33:16.258226 socat[418648] I shutdown(6, 1)
-2020/05/15 22:33:16.258249 socat[418648] I shutdown(6, 2)
-2020/05/15 22:33:16.258266 socat[418648] N exiting with status 0
+2020/05/18 15:59:26.473994 socat[121589] I socat by Gerhard Rieger and contributors - see www.dest-unreach.org
+2020/05/18 15:59:26.474103 socat[121589] I This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit. (http://www.openssl.org/)
+2020/05/18 15:59:26.474116 socat[121589] I This product includes software written by Tim Hudson (tjh@cryptsoft.com)
+2020/05/18 15:59:26.474147 socat[121589] N using stdin for reading
+2020/05/18 15:59:26.474189 socat[121589] N opening connection to AF=2 10.0.0.6:5440
+2020/05/18 15:59:26.474199 socat[121589] I starting connect loop
+2020/05/18 15:59:26.474217 socat[121589] I socket(2, 1, 6) -> 6
+2020/05/18 15:59:26.547628 socat[121589] N successfully connected from local address AF=2 10.0.0.20:44486
+2020/05/18 15:59:26.547677 socat[121589] I resolved and opened all sock addresses
+2020/05/18 15:59:26.547701 socat[121589] N starting data transfer loop with FDs [0,0] and [6,6]
+2020/05/18 15:59:26.547796 socat[121589] I transferred 8192 bytes from 0 to 6
+2020/05/18 15:59:26.547851 socat[121589] I transferred 8192 bytes from 0 to 6
+2020/05/18 15:59:26.547874 socat[121589] I transferred 8192 bytes from 0 to 6
+2020/05/18 15:59:26.547894 socat[121589] I transferred 8192 bytes from 0 to 6
+2020/05/18 15:59:26.547919 socat[121589] I transferred 8192 bytes from 0 to 6
+2020/05/18 15:59:26.547937 socat[121589] I transferred 8192 bytes from 0 to 6
+2020/05/18 15:59:26.547955 socat[121589] I transferred 8192 bytes from 0 to 6
+2020/05/18 15:59:26.562354 socat[121589] I transferred 8192 bytes from 0 to 6
+2020/05/18 15:59:26.575045 socat[121589] I transferred 8192 bytes from 0 to 6
+2020/05/18 15:59:26.586745 socat[121589] I transferred 8192 bytes from 0 to 6
+2020/05/18 15:59:26.586823 socat[121589] I transferred 8192 bytes from 0 to 6
+2020/05/18 15:59:26.586874 socat[121589] I transferred 8192 bytes from 0 to 6
+2020/05/18 15:59:26.586910 socat[121589] I transferred 4096 bytes from 0 to 6
+2020/05/18 15:59:26.586931 socat[121589] N socket 1 (fd 0) is at EOF
+2020/05/18 15:59:26.586942 socat[121589] I shutdown(6, 1)
+2020/05/18 15:59:26.586957 socat[121589] I shutdown(6, 2)
+2020/05/18 15:59:26.586978 socat[121589] N exiting with status 0

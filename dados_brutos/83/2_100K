@@ -1,11 +1,27 @@
-2020/05/15 22:34:24.005300 socat[422675] I socat by Gerhard Rieger and contributors - see www.dest-unreach.org
-2020/05/15 22:34:24.005371 socat[422675] I This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit. (http://www.openssl.org/)
-2020/05/15 22:34:24.005392 socat[422675] I This product includes software written by Tim Hudson (tjh@cryptsoft.com)
-2020/05/15 22:34:24.005414 socat[422675] N using stdin for reading
-2020/05/15 22:34:24.005447 socat[422675] N opening connection to AF=2 10.0.0.9:5440
-2020/05/15 22:34:24.005455 socat[422675] I starting connect loop
-2020/05/15 22:34:24.005472 socat[422675] I socket(2, 1, 6) -> 6
-2020/05/15 22:34:24.029092 socat[422675] E connect(6, AF=2 10.0.0.9:5440, 16): Connection refused
-2020/05/15 22:34:24.029092 socat[422675] N exit(1)
-2020/05/15 22:34:24.029137 socat[422675] I shutdown(6, 2)
-2020/05/15 22:34:24.029146 socat[422675] I shutdown(6, 2): Transport endpoint is not connected
+2020/05/18 16:00:34.007840 socat[126048] I socat by Gerhard Rieger and contributors - see www.dest-unreach.org
+2020/05/18 16:00:34.007911 socat[126048] I This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit. (http://www.openssl.org/)
+2020/05/18 16:00:34.007919 socat[126048] I This product includes software written by Tim Hudson (tjh@cryptsoft.com)
+2020/05/18 16:00:34.007944 socat[126048] N using stdin for reading
+2020/05/18 16:00:34.007973 socat[126048] N opening connection to AF=2 10.0.0.17:5440
+2020/05/18 16:00:34.007980 socat[126048] I starting connect loop
+2020/05/18 16:00:34.007993 socat[126048] I socket(2, 1, 6) -> 6
+2020/05/18 16:00:34.183695 socat[126048] N successfully connected from local address AF=2 10.0.0.8:42972
+2020/05/18 16:00:34.183731 socat[126048] I resolved and opened all sock addresses
+2020/05/18 16:00:34.183746 socat[126048] N starting data transfer loop with FDs [0,0] and [6,6]
+2020/05/18 16:00:34.183852 socat[126048] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:34.183893 socat[126048] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:34.183932 socat[126048] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:34.183966 socat[126048] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:34.184018 socat[126048] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:34.184046 socat[126048] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:34.184073 socat[126048] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:34.208943 socat[126048] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:34.208988 socat[126048] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:34.209004 socat[126048] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:34.251579 socat[126048] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:34.251619 socat[126048] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:34.251636 socat[126048] I transferred 4096 bytes from 0 to 6
+2020/05/18 16:00:34.251645 socat[126048] N socket 1 (fd 0) is at EOF
+2020/05/18 16:00:34.251650 socat[126048] I shutdown(6, 1)
+2020/05/18 16:00:34.251656 socat[126048] I shutdown(6, 2)
+2020/05/18 16:00:34.251662 socat[126048] N exiting with status 0

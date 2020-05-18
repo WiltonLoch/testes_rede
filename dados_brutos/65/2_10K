@@ -1,16 +1,16 @@
-2020/05/15 22:34:05.046454 socat[421077] I socat by Gerhard Rieger and contributors - see www.dest-unreach.org
-2020/05/15 22:34:05.046526 socat[421077] I This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit. (http://www.openssl.org/)
-2020/05/15 22:34:05.046534 socat[421077] I This product includes software written by Tim Hudson (tjh@cryptsoft.com)
-2020/05/15 22:34:05.046557 socat[421077] N using stdin for reading
-2020/05/15 22:34:05.046590 socat[421077] N opening connection to AF=2 10.0.0.1:5440
-2020/05/15 22:34:05.046597 socat[421077] I starting connect loop
-2020/05/15 22:34:05.046612 socat[421077] I socket(2, 1, 6) -> 6
-2020/05/15 22:34:05.149711 socat[421077] N successfully connected from local address AF=2 10.0.0.19:43634
-2020/05/15 22:34:05.149731 socat[421077] I resolved and opened all sock addresses
-2020/05/15 22:34:05.149744 socat[421077] N starting data transfer loop with FDs [0,0] and [6,6]
-2020/05/15 22:34:05.149799 socat[421077] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:05.149822 socat[421077] I transferred 2048 bytes from 0 to 6
-2020/05/15 22:34:05.149833 socat[421077] N socket 1 (fd 0) is at EOF
-2020/05/15 22:34:05.149838 socat[421077] I shutdown(6, 1)
-2020/05/15 22:34:05.149848 socat[421077] I shutdown(6, 2)
-2020/05/15 22:34:05.149855 socat[421077] N exiting with status 0
+2020/05/18 16:00:15.248158 socat[124412] I socat by Gerhard Rieger and contributors - see www.dest-unreach.org
+2020/05/18 16:00:15.248236 socat[124412] I This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit. (http://www.openssl.org/)
+2020/05/18 16:00:15.248245 socat[124412] I This product includes software written by Tim Hudson (tjh@cryptsoft.com)
+2020/05/18 16:00:15.248269 socat[124412] N using stdin for reading
+2020/05/18 16:00:15.248304 socat[124412] N opening connection to AF=2 10.0.0.20:5440
+2020/05/18 16:00:15.248313 socat[124412] I starting connect loop
+2020/05/18 16:00:15.248328 socat[124412] I socket(2, 1, 6) -> 6
+2020/05/18 16:00:15.453752 socat[124412] N successfully connected from local address AF=2 10.0.0.9:44858
+2020/05/18 16:00:15.453785 socat[124412] I resolved and opened all sock addresses
+2020/05/18 16:00:15.453799 socat[124412] N starting data transfer loop with FDs [0,0] and [6,6]
+2020/05/18 16:00:15.453851 socat[124412] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:15.453880 socat[124412] I transferred 2048 bytes from 0 to 6
+2020/05/18 16:00:15.453896 socat[124412] N socket 1 (fd 0) is at EOF
+2020/05/18 16:00:15.453903 socat[124412] I shutdown(6, 1)
+2020/05/18 16:00:15.453918 socat[124412] I shutdown(6, 2)
+2020/05/18 16:00:15.453928 socat[124412] N exiting with status 0

@@ -1,142 +1,52 @@
-2020/05/15 22:34:30.353743 socat[423215] I socat by Gerhard Rieger and contributors - see www.dest-unreach.org
-2020/05/15 22:34:30.353820 socat[423215] I This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit. (http://www.openssl.org/)
-2020/05/15 22:34:30.353829 socat[423215] I This product includes software written by Tim Hudson (tjh@cryptsoft.com)
-2020/05/15 22:34:30.353852 socat[423215] N using stdin for reading
-2020/05/15 22:34:30.353883 socat[423215] N opening connection to AF=2 10.0.0.7:5440
-2020/05/15 22:34:30.353891 socat[423215] I starting connect loop
-2020/05/15 22:34:30.353906 socat[423215] I socket(2, 1, 6) -> 6
-2020/05/15 22:34:30.491754 socat[423215] N successfully connected from local address AF=2 10.0.0.1:37518
-2020/05/15 22:34:30.491784 socat[423215] I resolved and opened all sock addresses
-2020/05/15 22:34:30.491801 socat[423215] N starting data transfer loop with FDs [0,0] and [6,6]
-2020/05/15 22:34:30.491869 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.491908 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.491934 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.491957 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.491984 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.492007 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.492029 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.508980 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.509043 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.550487 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.550550 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.550598 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.550651 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.550696 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.550742 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.550785 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.550837 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.550877 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.550919 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.550963 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.551011 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.551052 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.551096 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.551138 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.551195 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.551234 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.551276 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.551319 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.551375 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.551416 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.551460 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.551502 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.551553 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.551593 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.600797 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.600968 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:30.681305 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:36.843909 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:36.914101 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.863225 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.863263 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.863302 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.863324 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.870334 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.870386 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.870594 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.870621 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877367 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877410 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877428 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877444 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877459 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877477 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877493 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877508 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877529 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877599 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877653 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877683 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877719 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877742 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877765 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877787 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877808 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877833 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877853 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877874 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877897 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877921 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877942 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877963 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.877985 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.878010 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.878032 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.878053 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.878074 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.878098 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.878119 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.879255 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.879291 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.879321 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.879344 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.879365 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.879386 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.879414 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.879437 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.879459 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.879478 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.879581 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.879627 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.879653 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.879674 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.879697 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.879733 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.885471 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.885523 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.927776 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.927816 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.927843 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.927867 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.927894 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.927915 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.927932 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.977031 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.977091 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.977119 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:37.977143 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:38.027033 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:38.110372 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:43.340347 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.660426 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.660468 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.710392 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.710447 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.710474 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.710497 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.710522 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.710558 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.710581 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.710603 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.710887 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.760424 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.760466 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.760491 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.760517 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.760540 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.760561 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.760582 socat[423215] I transferred 8192 bytes from 0 to 6
-2020/05/15 22:34:47.760596 socat[423215] N socket 1 (fd 0) is at EOF
-2020/05/15 22:34:47.760604 socat[423215] I shutdown(6, 1)
-2020/05/15 22:34:47.760613 socat[423215] I shutdown(6, 2)
-2020/05/15 22:34:47.760641 socat[423215] N exiting with status 0
+2020/05/18 16:00:40.381353 socat[126628] I socat by Gerhard Rieger and contributors - see www.dest-unreach.org
+2020/05/18 16:00:40.381504 socat[126628] I This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit. (http://www.openssl.org/)
+2020/05/18 16:00:40.381529 socat[126628] I This product includes software written by Tim Hudson (tjh@cryptsoft.com)
+2020/05/18 16:00:40.381584 socat[126628] N using stdin for reading
+2020/05/18 16:00:40.381647 socat[126628] N opening connection to AF=2 10.0.0.19:5440
+2020/05/18 16:00:40.381666 socat[126628] I starting connect loop
+2020/05/18 16:00:40.381699 socat[126628] I socket(2, 1, 6) -> 6
+2020/05/18 16:00:40.509087 socat[126628] N successfully connected from local address AF=2 10.0.0.2:55544
+2020/05/18 16:00:40.509117 socat[126628] I resolved and opened all sock addresses
+2020/05/18 16:00:40.509132 socat[126628] N starting data transfer loop with FDs [0,0] and [6,6]
+2020/05/18 16:00:40.509199 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.509241 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.509265 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.509290 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.509322 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.509345 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.509369 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.523687 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.535866 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.535968 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.536025 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.536063 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.536095 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.536121 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.536143 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.536161 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.536182 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.536277 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.548040 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.548081 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.548116 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.588594 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.588723 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.588890 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.588986 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.589066 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.589135 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.589221 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.589309 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.589382 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.589443 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.589563 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.589640 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.589689 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.589750 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.645300 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:40.728559 socat[126628] I transferred 8192 bytes from 0 to 6
+2020/05/18 16:00:48.150049 socat[126628] N socat_signal(): handling signal 1
+2020/05/18 16:00:48.150054 socat[126628] N exiting on signal 1
+2020/05/18 16:00:48.150055 socat[126628] N socat_signal(): finishing signal 1
+2020/05/18 16:00:48.150510 socat[126628] N exit(129)
+2020/05/18 16:00:48.150530 socat[126628] I shutdown(6, 2)
