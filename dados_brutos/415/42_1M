@@ -1,0 +1,11 @@
+2020/05/15 22:52:13.086265 socat[605102] I socat by Gerhard Rieger and contributors - see www.dest-unreach.org
+2020/05/15 22:52:13.086327 socat[605102] I This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit. (http://www.openssl.org/)
+2020/05/15 22:52:13.086335 socat[605102] I This product includes software written by Tim Hudson (tjh@cryptsoft.com)
+2020/05/15 22:52:13.086360 socat[605102] N using stdin for reading
+2020/05/15 22:52:13.086388 socat[605102] N opening connection to AF=2 10.0.0.2:5440
+2020/05/15 22:52:13.086395 socat[605102] I starting connect loop
+2020/05/15 22:52:13.086406 socat[605102] I socket(2, 1, 6) -> 6
+2020/05/15 22:54:22.013131 socat[605102] E connect(6, AF=2 10.0.0.2:5440, 16): Connection timed out
+2020/05/15 22:54:22.013131 socat[605102] N exit(1)
+2020/05/15 22:54:22.044294 socat[605102] I shutdown(6, 2)
+2020/05/15 22:54:22.044324 socat[605102] I shutdown(6, 2): Transport endpoint is not connected

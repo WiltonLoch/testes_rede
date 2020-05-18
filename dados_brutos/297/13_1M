@@ -1,0 +1,38 @@
+2020/05/15 22:40:56.401656 socat[492927] I socat by Gerhard Rieger and contributors - see www.dest-unreach.org
+2020/05/15 22:40:56.401727 socat[492927] I This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit. (http://www.openssl.org/)
+2020/05/15 22:40:56.401736 socat[492927] I This product includes software written by Tim Hudson (tjh@cryptsoft.com)
+2020/05/15 22:40:56.401763 socat[492927] N using stdin for reading
+2020/05/15 22:40:56.401796 socat[492927] N opening connection to AF=2 10.0.0.14:5440
+2020/05/15 22:40:56.401803 socat[492927] I starting connect loop
+2020/05/15 22:40:56.401818 socat[492927] I socket(2, 1, 6) -> 6
+2020/05/15 22:40:56.747953 socat[492927] N successfully connected from local address AF=2 10.0.0.6:54576
+2020/05/15 22:40:56.747978 socat[492927] I resolved and opened all sock addresses
+2020/05/15 22:40:56.747997 socat[492927] N starting data transfer loop with FDs [0,0] and [6,6]
+2020/05/15 22:40:56.748054 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:40:56.748095 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:40:56.748121 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:40:56.748145 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:40:56.748175 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:40:56.748198 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:40:56.748220 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:40:56.773778 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:40:56.773895 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:40:56.773924 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:40:56.815704 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:40:56.815749 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:40:56.815784 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:40:56.815811 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:42:03.598808 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:42:03.610938 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:42:03.635237 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:42:48.723219 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:42:48.747923 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:42:48.760127 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:42:48.772293 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:42:48.796911 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:43:18.161476 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:43:18.201103 socat[492927] I transferred 8192 bytes from 0 to 6
+2020/05/15 23:00:11.883525 socat[492927] E write(6, 0x5560f5a99f80, 8192): No route to host
+2020/05/15 23:00:11.883525 socat[492927] N exit(1)
+2020/05/15 23:00:12.006673 socat[492927] I shutdown(6, 2)
+2020/05/15 23:00:12.006696 socat[492927] I shutdown(6, 2): Transport endpoint is not connected

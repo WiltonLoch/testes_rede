@@ -1,0 +1,25 @@
+2020/05/15 22:43:36.519441 socat[520194] I socat by Gerhard Rieger and contributors - see www.dest-unreach.org
+2020/05/15 22:43:36.519513 socat[520194] I This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit. (http://www.openssl.org/)
+2020/05/15 22:43:36.519522 socat[520194] I This product includes software written by Tim Hudson (tjh@cryptsoft.com)
+2020/05/15 22:43:36.519590 socat[520194] N using stdin for reading
+2020/05/15 22:43:36.519627 socat[520194] N opening connection to AF=2 10.0.0.19:5440
+2020/05/15 22:43:36.519635 socat[520194] I starting connect loop
+2020/05/15 22:43:36.519649 socat[520194] I socket(2, 1, 6) -> 6
+2020/05/15 22:43:36.656112 socat[520194] N successfully connected from local address AF=2 10.0.0.1:57914
+2020/05/15 22:43:36.656144 socat[520194] I resolved and opened all sock addresses
+2020/05/15 22:43:36.656165 socat[520194] N starting data transfer loop with FDs [0,0] and [6,6]
+2020/05/15 22:43:36.656256 socat[520194] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:43:39.038597 socat[520194] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:43:39.111772 socat[520194] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:43:39.136087 socat[520194] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:43:39.189346 socat[520194] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:43:39.307721 socat[520194] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:43:39.445005 socat[520194] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:43:39.482604 socat[520194] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:43:39.563236 socat[520194] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:43:39.712338 socat[520194] I transferred 8192 bytes from 0 to 6
+2020/05/15 23:00:21.734021 socat[520194] N socat_signal(): handling signal 1
+2020/05/15 23:00:21.734039 socat[520194] N exiting on signal 1
+2020/05/15 23:00:21.734044 socat[520194] N socat_signal(): finishing signal 1
+2020/05/15 23:00:21.780122 socat[520194] N exit(129)
+2020/05/15 23:00:21.780139 socat[520194] I shutdown(6, 2)

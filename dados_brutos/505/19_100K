@@ -1,0 +1,22 @@
+2020/05/15 22:57:08.096413 socat[657336] I socat by Gerhard Rieger and contributors - see www.dest-unreach.org
+2020/05/15 22:57:08.096475 socat[657336] I This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit. (http://www.openssl.org/)
+2020/05/15 22:57:08.096484 socat[657336] I This product includes software written by Tim Hudson (tjh@cryptsoft.com)
+2020/05/15 22:57:08.096507 socat[657336] N using stdin for reading
+2020/05/15 22:57:08.096534 socat[657336] N opening connection to AF=2 10.0.0.9:5440
+2020/05/15 22:57:08.096542 socat[657336] I starting connect loop
+2020/05/15 22:57:08.096557 socat[657336] I socket(2, 1, 6) -> 6
+2020/05/15 22:58:05.620827 socat[657336] N successfully connected from local address AF=2 10.0.0.12:47318
+2020/05/15 22:58:05.621071 socat[657336] I resolved and opened all sock addresses
+2020/05/15 22:58:05.621093 socat[657336] N starting data transfer loop with FDs [0,0] and [6,6]
+2020/05/15 22:58:05.621153 socat[657336] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:58:05.621185 socat[657336] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:58:05.621227 socat[657336] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:58:05.621253 socat[657336] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:58:05.621283 socat[657336] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:58:05.621308 socat[657336] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:58:05.621333 socat[657336] I transferred 8192 bytes from 0 to 6
+2020/05/15 23:00:29.384215 socat[657336] N socat_signal(): handling signal 1
+2020/05/15 23:00:29.384222 socat[657336] N exiting on signal 1
+2020/05/15 23:00:29.384225 socat[657336] N socat_signal(): finishing signal 1
+2020/05/15 23:00:29.875024 socat[657336] N exit(129)
+2020/05/15 23:00:29.875053 socat[657336] I shutdown(6, 2)

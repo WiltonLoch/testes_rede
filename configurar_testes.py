@@ -52,7 +52,6 @@ def gerarCurvas():
     random.seed()
     #percorre todos os valores de x de forma crescente
     for x in range(0, tempo_duracao):
-        saida.write("%s" % x)
         #define uma variavel para o y tanto dos ratos quanto dos elefantes para aquele x
         y_ratos = 0
         y_elefantes = 0

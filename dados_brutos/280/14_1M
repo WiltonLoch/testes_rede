@@ -1,0 +1,21 @@
+2020/05/15 22:39:48.985704 socat[482634] I socat by Gerhard Rieger and contributors - see www.dest-unreach.org
+2020/05/15 22:39:48.985778 socat[482634] I This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit. (http://www.openssl.org/)
+2020/05/15 22:39:48.985787 socat[482634] I This product includes software written by Tim Hudson (tjh@cryptsoft.com)
+2020/05/15 22:39:48.985810 socat[482634] N using stdin for reading
+2020/05/15 22:39:48.985845 socat[482634] N opening connection to AF=2 10.0.0.2:5440
+2020/05/15 22:39:48.985853 socat[482634] I starting connect loop
+2020/05/15 22:39:48.985868 socat[482634] I socket(2, 1, 6) -> 6
+2020/05/15 22:39:49.436463 socat[482634] N successfully connected from local address AF=2 10.0.0.12:59068
+2020/05/15 22:39:49.436495 socat[482634] I resolved and opened all sock addresses
+2020/05/15 22:39:49.436510 socat[482634] N starting data transfer loop with FDs [0,0] and [6,6]
+2020/05/15 22:39:49.436575 socat[482634] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:39:49.436615 socat[482634] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:39:49.436640 socat[482634] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:39:49.436660 socat[482634] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:39:49.436687 socat[482634] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:39:49.436709 socat[482634] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:39:49.436731 socat[482634] I transferred 8192 bytes from 0 to 6
+2020/05/15 22:39:49.460412 socat[482634] E write(6, 0x55cc578c4f80, 8192): Connection reset by peer
+2020/05/15 22:39:49.460412 socat[482634] N exit(1)
+2020/05/15 22:39:49.460449 socat[482634] I shutdown(6, 2)
+2020/05/15 22:39:49.460465 socat[482634] I shutdown(6, 2): Transport endpoint is not connected
