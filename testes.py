@@ -17,16 +17,25 @@ class Testes:
             h.cmd("stress-ng -t 8 -c 1 -l %s &" % carga)
 
     @staticmethod
-    def emitir_sl_paralelos(rede, cargas, caminho):
+    def emitir_sl_paralelos(rede, cargas, caminho, portas_escolhidas, portas_em_uso):
         for i in range(len(cargas)):
             origem = random.randrange(len(rede.hosts))
             destino = random.randrange(len(rede.hosts))
             while(destino == origem):
                 destino = random.randrange(len(rede.hosts))
 
-            rede.hosts[destino].cmd('socat -u TCP-LISTEN:5440,reuseaddr stdout &')
-            comando_cliente = 'tail -c ' + cargas[i] + ' data | socat -lf ' + caminho + '/%s_' % i + cargas[i] + ' -lu -ddd -u stdin TCP-CONNECT:%s:5440' % rede.hosts[destino].IP() + ' &'
-            #print(comando_cliente)
+            if(len(portas_escolhidas) != 0):
+                porta = portas_escolhidas[-1] + 1
+            else:
+                porta = 1024
+
+            while(porta in portas_em_uso + portas_escolhidas):
+                porta += 1
+            portas_escolhidas.append(porta)
+            comando_servidor = 'socat -u TCP-LISTEN:' + str(porta) + ',reuseaddr stdout &'
+            comando_cliente = 'sleep 0.5 && tail -c ' + cargas[i] + ' data | socat -lf ' + caminho + '/%s_' % i + cargas[i] + ' -lu -dddd -u stdin TCP-CONNECT:%s:%s' % (rede.hosts[destino].IP(), porta) + ' &'
+
+            rede.hosts[destino].cmd(comando_servidor)
             rede.hosts[origem].cmd(comando_cliente)
 
     @staticmethod
