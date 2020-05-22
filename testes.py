@@ -32,8 +32,9 @@ class Testes:
             while(porta in portas_em_uso + portas_escolhidas):
                 porta += 1
             portas_escolhidas.append(porta)
-            comando_servidor = 'socat -u TCP-LISTEN:' + str(porta) + ',reuseaddr stdout &'
-            comando_cliente = 'sleep 0.5 && tail -c ' + cargas[i] + ' data | socat -lf ' + caminho + '/%s_' % i + cargas[i] + ' -lu -dddd -u stdin TCP-CONNECT:%s:%s' % (rede.hosts[destino].IP(), porta) + ' &'
+            comando_servidor = 'nohup socat -u TCP-LISTEN:' + str(porta) + ',reuseaddr stdout &'
+            comando_cliente = 'sleep 0.5 && nohup tail -c ' + cargas[i] + ' data | socat -lf ' + caminho + '/%s_' % i + cargas[i] + ' -lu -ddd -u stdin TCP-CONNECT:%s:%s' % (rede.hosts[destino].IP(), porta) + ' &'
+            #print(comando_servidor, comando_cliente)
 
             rede.hosts[destino].cmd(comando_servidor)
             rede.hosts[origem].cmd(comando_cliente)
@@ -42,6 +43,7 @@ class Testes:
     def emitir_sl(rede, carga, origem, destino):
         rede.hosts[destino].cmd('socat -u TCP-LISTEN:5440,reuseaddr stdout &')
         tempos = rede.hosts[origem].cmd('sleep 0.5 && tail -c ' + carga + ' data | socat -lu -ddd -u stdin TCP-CONNECT:%s:5440' % rede.hosts[destino].IP())
+        print(tempos)
         tempos = tempos.rsplit('socket', 1)[0].split('reading', 1)[1].splitlines()
         tempo_inicial, tempo_final = tempos[1], tempos[-1]
         tempo_inicial = [float(x) for x in tempo_inicial.split()[1].split(':')]
