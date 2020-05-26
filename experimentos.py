@@ -53,12 +53,14 @@ def experimento():
        caminho = 'dados_brutos/%s' % i
        Path(caminho).mkdir(parents = True, exist_ok = True)  
        print("Disparando grupo ", i)
+       tempo_inicial = time.time()
        Testes.emitir_sl_paralelos(rede, casos_teste[i].split(), caminho, portas_escolhidas, portas_em_uso)
-       time.sleep(1)
+       print(time.time() - tempo_inicial)
+       time.sleep(5 - (time.time() - tempo_inicial))
 
 
     dumpNodeConnections(rede.hosts)
-    time.sleep(120)
+    #time.sleep(120)
 
     rede.stop()
 
