@@ -1,7 +1,7 @@
-DURACAO = 60
+DURACAO = 600
 TAMANHOS = 1K 10K 100K 1M 10M
 CURVA { 
-	centro 	= 30
-	desvio 	= 12
-	pico 	= 20
+	centro 	= 300
+	desvio 	= 100 
+	pico 	= 50
 }

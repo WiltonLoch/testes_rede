@@ -56,7 +56,7 @@ def experimento():
        tempo_inicial = time.time()
        Testes.emitir_sl_paralelos(rede, casos_teste[i].split(), caminho, portas_escolhidas, portas_em_uso)
        print(time.time() - tempo_inicial)
-       time.sleep(5 - (time.time() - tempo_inicial))
+       time.sleep(10 - (time.time() - tempo_inicial))
 
 
     dumpNodeConnections(rede.hosts)
