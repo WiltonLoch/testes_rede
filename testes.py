@@ -32,17 +32,21 @@ class Testes:
             while(porta in portas_em_uso + portas_escolhidas):
                 porta += 1
             portas_escolhidas.append(porta)
+            obterPID = False
             if(cargas[i][-1] == 'K'):
-                comando_servidor = 'nohup socat -u TCP-LISTEN:' + str(porta) + ',reuseaddr FILE:/dev/null &'
-                comando_cliente = 'sleep 0.5 && nohup tail -c ' + cargas[i] + ' data | socat -lf ' + caminho + '/%s_' % i + cargas[i] + ' -lu -ddd -u stdin TCP-CONNECT:%s:%s' % (rede.hosts[destino].IP(), porta) + ' &'
+                comando_servidor = 'socat -u TCP-LISTEN:' + str(porta) + ',reuseaddr FILE:/dev/null &'
+                comando_cliente = 'sleep 0.5 && tail -c ' + cargas[i] + ' data | socat -lf ' + caminho + '/%s_' % i + cargas[i] + ' -lu -ddd -u stdin TCP-CONNECT:%s:%s' % (rede.hosts[destino].IP(), porta) + ' &'
             else:
                 comando_servidor = 'iperf3 --server --one-off -p ' + str(porta) + ' -D'
                 comando_cliente = 'sleep 0.5 && iperf3 --client %s' % rede.hosts[destino].IP() + ' -p ' + str(porta) + ' --verbose --bytes ' + cargas[i] + ' --logfile ' + caminho + '/%s_' % i + cargas[i] + ' &'
-
+                obterPID = True
             #print(comando_servidor, comando_cliente)
 
             rede.hosts[destino].cmd(comando_servidor)
             rede.hosts[origem].cmd(comando_cliente)
+            if obterPID:
+                print(rede.hosts[destino].cmd('top -n 1 | grep iperf'))
+            # print(rede.hosts[origem].cmd('sleep 0.5 && top -n 1'))
 
     @staticmethod
     def emitir_sl(rede, carga, origem, destino):

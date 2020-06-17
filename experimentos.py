@@ -30,10 +30,10 @@ def experimento():
     for i in rede.hosts:
         i.cmd("sysctl -w net.ipv4.tcp_congestion_control=dctcp; sysctl -w net.ipv4.tcp_ecn=1")
 
-    for i in range(len(rede.hosts)):
-        for j in range(i + 1, len(rede.hosts)):
-            print("h%s <-> h%s -- " % (i, j), end = "")
-            print(Testes.emitir_sl(rede, '1K', i, j))
+    # for i in range(len(rede.hosts)):
+    #     for j in range(i + 1, len(rede.hosts)):
+    #         print("h%s <-> h%s -- " % (i, j), end = "")
+    #         print(Testes.emitir_sl(rede, '1K', i, j))
 
     entrada = open("config/casos_teste", "r") 
     if entrada.mode != 'r':
