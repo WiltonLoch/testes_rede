@@ -17,13 +17,11 @@ class Testes:
             h.cmd("stress-ng -t 8 -c 1 -l %s &" % carga)
 
     @staticmethod
-    def emitir_sl_paralelos(rede, cargas, caminho, portas_escolhidas, portas_em_uso):
+    def emitir_sl_paralelos(rede, cargas, caminho, portas_escolhidas, portas_em_uso, alocacoes, politica, matrizPulos):
         for i in range(len(cargas)):
-            origem = random.randrange(len(rede.hosts))
-            destino = random.randrange(len(rede.hosts))
-            while(destino == origem):
-                destino = random.randrange(len(rede.hosts))
-
+            print(len(cargas))
+            escalonamento = politica(rede, alocacoes, matrizPulos)
+            origem, destino = escalonamento[0], escalonamento[1]
             if(len(portas_escolhidas) != 0):
                 porta = portas_escolhidas[-1] + 1
             else:
@@ -32,21 +30,30 @@ class Testes:
             while(porta in portas_em_uso + portas_escolhidas):
                 porta += 1
             portas_escolhidas.append(porta)
-            obterPID = False
             if(cargas[i][-1] == 'K'):
-                comando_servidor = 'socat -u TCP-LISTEN:' + str(porta) + ',reuseaddr FILE:/dev/null &'
-                comando_cliente = 'sleep 0.5 && tail -c ' + cargas[i] + ' data | socat -lf ' + caminho + '/%s_' % i + cargas[i] + ' -lu -ddd -u stdin TCP-CONNECT:%s:%s' % (rede.hosts[destino].IP(), porta) + ' &'
+                comando_servidor = 'socat -u TCP-LISTEN:' + str(porta) + ',reuseaddr FILE:/dev/null'
+                comando_cliente = 'sleep 0.5 && tail -c ' + cargas[i] + ' data | socat -lf ' + caminho + '/%s_' % i + cargas[i] + ' -lu -ddd -u stdin TCP-CONNECT:%s:%s' % (rede.hosts[destino].IP(), porta)
             else:
-                comando_servidor = 'iperf3 --server --one-off -p ' + str(porta) + ' -D'
-                comando_cliente = 'sleep 0.5 && iperf3 --client %s' % rede.hosts[destino].IP() + ' -p ' + str(porta) + ' --verbose --bytes ' + cargas[i] + ' --logfile ' + caminho + '/%s_' % i + cargas[i] + ' &'
-                obterPID = True
+                comando_servidor = 'iperf3 --server -p ' + str(porta) + ' --one-off'
+                comando_cliente = 'sleep 0.5 && iperf3 --client %s' % rede.hosts[destino].IP() + ' -p ' + str(porta) + ' --verbose --bytes ' + cargas[i] + ' --logfile ' + caminho + '/%s_' % i + cargas[i]
             #print(comando_servidor, comando_cliente)
 
-            rede.hosts[destino].cmd(comando_servidor)
-            rede.hosts[origem].cmd(comando_cliente)
-            if obterPID:
-                print(rede.hosts[destino].cmd('top -n 1 | grep iperf'))
-            # print(rede.hosts[origem].cmd('sleep 0.5 && top -n 1'))
+            rede.hosts[destino].popen(comando_servidor.split(), shell = True)
+            processo = rede.hosts[origem].popen(comando_cliente.split(), shell = True)
+            removiveis = []
+            for j in alocacoes:
+                if j[0][-1] == 'K':
+                    removiveis.append(j)
+                else:
+                    saida_top = [x.split()[0] for x in rede.hosts[j[1]].cmd('top -n 1 -b -p %s' % j[-1]).splitlines()[7:]]
+                    if str(j[3]) not in saida_top:
+                        removiveis.append(j)
+
+            for j in removiveis:
+                alocacoes.remove(j)
+
+            alocacoes.append((cargas[i], origem, destino, processo.pid))
+            print(alocacoes)
 
     @staticmethod
     def emitir_sl(rede, carga, origem, destino):
