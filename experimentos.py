@@ -7,6 +7,7 @@ from mininet.clean import Cleanup
 from mininet.util import custom
 from topologia import arvoreMultiNos
 from testes import Testes
+from collections import defaultdict
 from politicasEscalonamento import Politicas
 
 from datetime import timedelta
@@ -23,21 +24,28 @@ def construirMatrizPulos(rede):
     nodes = len(rede.hosts)
     hosts_per_tor = nodes//sws_last_level
 
+    links = rede.topo.links()
+    pair_paths = []
+    paths = defaultdict(list)
     for i in range(len(rede.hosts)):
-        for j in range(len(rede.hosts)):
+        for j in range(i, len(rede.hosts)):
             if i != j:
-                hops = 2
-                slices = 1
-                while(slices * hosts_per_tor <= nodes/2):
-                    if(i//(slices * hosts_per_tor) != j//(slices * hosts_per_tor)):
-                        slices *= 2
-                        hops += 2
-                    else:
-                        break
-                # print(hops, i, j)
-                matrizPulos.append((hops, i, j))
-    matrizPulos.sort(key = lambda tup : tup[0])
-    return matrizPulos
+                node_i = rede.hosts[i] 
+                node_j = rede.hosts[j] 
+                link_i = [link for link in links if link[0] == str(node_i)]
+                link_j = [link for link in links if link[0] == str(node_j)]
+                pair_paths.append(link_i[0])
+                pair_paths.append(link_j[0])
+                while(link_i[0][1] != link_j[0][1]):
+                    node_i = link_i[0][1]
+                    node_j = link_j[0][1]
+                    link_i = [link for link in links if link[0] == node_i]
+                    link_j = [link for link in links if link[0] == node_j]
+                    pair_paths.insert(len(pair_paths) - len(pair_paths)//2, link_i[0])
+                    pair_paths.insert(len(pair_paths)//2 + 1, link_j[0])
+                paths[(i, j)] = pair_paths[:]
+                pair_paths.clear()
+    return paths
 
 def experimento():
     Cleanup.cleanup()
@@ -62,7 +70,6 @@ def experimento():
     #         print(Testes.emitir_sl(rede, '1K', i, j))
 
     matrizPulos = construirMatrizPulos(rede)
-    print(matrizPulos)
     entrada = open("config/casos_teste", "r") 
     if entrada.mode != 'r':
        print("Nao foi possivel carregar o arquivo contendo os casos de teste")

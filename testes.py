@@ -19,8 +19,7 @@ class Testes:
     @staticmethod
     def emitir_sl_paralelos(rede, cargas, caminho, portas_escolhidas, portas_em_uso, alocacoes, politica, matrizPulos):
         for i in range(len(cargas)):
-            print(len(cargas))
-            escalonamento = politica(rede, alocacoes, matrizPulos)
+            escalonamento = politica(rede, cargas[i], alocacoes, matrizPulos)
             origem, destino = escalonamento[0], escalonamento[1]
             if(len(portas_escolhidas) != 0):
                 porta = portas_escolhidas[-1] + 1
@@ -53,7 +52,6 @@ class Testes:
                 alocacoes.remove(j)
 
             alocacoes.append((cargas[i], origem, destino, processo.pid))
-            print(alocacoes)
 
     @staticmethod
     def emitir_sl(rede, carga, origem, destino):
