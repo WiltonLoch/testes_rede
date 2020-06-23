@@ -7,6 +7,8 @@ from mininet.clean import Cleanup
 from topologia import arvoreMultiNos
 from datetime import timedelta
 from pathlib import Path
+
+import subprocess
 import time
 import random
 
@@ -19,7 +21,23 @@ class Testes:
     @staticmethod
     def emitir_sl_paralelos(rede, cargas, caminho, portas_escolhidas, portas_em_uso, alocacoes, politica, matrizPulos):
         for i in range(len(cargas)):
+            top_command = 'top -n 1 -b'
+            for j in alocacoes:
+                top_command += ' -p%s' % j[-1]
+
+            saida_top = subprocess.Popen(top_command.split(), stdout = subprocess.PIPE, stderr = subprocess.STDOUT).communicate() 
+            saida_top = [str(x).split()[1] for x in saida_top[-2].splitlines()[7:]]
+            removiveis = []
+            for j in alocacoes:
+                if str(j[3]) not in saida_top:
+                    removiveis.append(j)
+
+            for j in removiveis:
+                alocacoes.remove(j)
+
+            # tempo_inicial = time.time()
             escalonamento = politica(rede, cargas[i], alocacoes, matrizPulos)
+            # print("tempo de escalonamento: ", time.time() - tempo_inicial)
             origem, destino = escalonamento[0], escalonamento[1]
             if(len(portas_escolhidas) != 0):
                 porta = portas_escolhidas[-1] + 1
@@ -39,17 +57,6 @@ class Testes:
 
             rede.hosts[destino].popen(comando_servidor.split(), shell = True)
             processo = rede.hosts[origem].popen(comando_cliente.split(), shell = True)
-            removiveis = []
-            for j in alocacoes:
-                if j[0][-1] == 'K':
-                    removiveis.append(j)
-                else:
-                    saida_top = [x.split()[0] for x in rede.hosts[j[1]].cmd('top -n 1 -b -p %s' % j[-1]).splitlines()[7:]]
-                    if str(j[3]) not in saida_top:
-                        removiveis.append(j)
-
-            for j in removiveis:
-                alocacoes.remove(j)
 
             alocacoes.append((cargas[i], origem, destino, processo.pid))
 
