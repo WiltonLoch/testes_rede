@@ -1,4 +1,4 @@
-rom mininet.net import Mininet
+from mininet.net import Mininet
 from mininet.util import dumpNodeConnections
 from mininet.cli import CLI
 from mininet.node import CPULimitedHost
@@ -90,7 +90,7 @@ def experimento():
        Path(caminho).mkdir(parents = True, exist_ok = True)  
        print("Disparando grupo ", i)
        tempo_inicial = time.time()
-       Testes.emitir_sl_paralelos(rede, casos_teste[i].split(), caminho, portas_escolhidas, portas_em_uso, alocacoes, Politicas.menorPuloLivre, matrizPulos)
+       Testes.emitir_sl_paralelos(rede, casos_teste[i].split(), caminho, portas_escolhidas, portas_em_uso, alocacoes, Politicas.aleatoria, matrizPulos)
 
        print(time.time() - tempo_inicial)
        time.sleep(10 - (time.time() - tempo_inicial))
