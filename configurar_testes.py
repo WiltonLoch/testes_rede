@@ -67,6 +67,8 @@ def gerarCurvas():
             for i in curvas_elefantes:
                 y_elefantes = round(max(y_elefantes, (aplicarEmCurva(x, i)/aplicarEmCurva(i[0], i)) * i[2]))
 
+        #Solução temporária para a porcentagem de ratos e elefantes somada ser igual ao pico, e não a quantidade de elefantes adicionar ao pico já completamente composto por ratos.
+        y_ratos -= y_elefantes
         #Como a quantidade de ratos é supostamente sempre maior que a quantidade de elefantes, utiliza o mesmo for para escrita de ambos na saída
         for i in range(y_ratos):
             saida.write(" %s" % tamanhos_ratos[random.randrange(len(tamanhos_ratos))])

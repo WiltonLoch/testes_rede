@@ -1,0 +1,34 @@
+iperf 3.7
+Linux turbocore 5.4.0-37-generic #41-Ubuntu SMP Wed Jun 3 18:57:02 UTC 2020 x86_64
+Time: Sat, 27 Jun 2020 07:34:28 GMT
+Connecting to host 10.0.0.5, port 17934
+      Cookie: tmedb7rv6dcp2c44me646dhwaipgzzlazut4
+      TCP MSS: 1448 (default)
+[  8] local 10.0.0.11 port 58968 connected to 10.0.0.5 port 17934
+Starting Test: protocol: TCP, 1 streams, 131072 byte blocks, omitting 0 seconds, 104857600 bytes to send, tos 0
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  8]   0.00-1.00   sec   264 KBytes  2.17 Mbits/sec    1   24.0 KBytes       
+[  8]   1.00-2.00   sec  3.99 MBytes  33.5 Mbits/sec    0    103 KBytes       
+[  8]   2.00-3.00   sec  3.17 MBytes  26.6 Mbits/sec    0    140 KBytes       
+[  8]   3.00-4.00   sec  1018 KBytes  8.34 Mbits/sec    1    148 KBytes       
+[  8]   4.00-5.00   sec   700 KBytes  5.73 Mbits/sec   12   82.0 KBytes       
+[  8]   5.00-6.00   sec  2.98 MBytes  25.0 Mbits/sec    0    122 KBytes       
+[  8]   6.00-7.00   sec  13.7 MBytes   115 Mbits/sec    0    230 KBytes       
+[  8]   7.00-8.00   sec  16.0 MBytes   134 Mbits/sec    0    315 KBytes       
+[  8]   8.00-9.00   sec  4.10 MBytes  34.4 Mbits/sec    0    332 KBytes       
+[  8]   9.00-10.00  sec  11.7 MBytes  98.5 Mbits/sec    2    379 KBytes       
+[  8]  10.00-11.00  sec  6.40 MBytes  53.7 Mbits/sec    0    402 KBytes       
+[  8]  11.00-12.00  sec  3.23 MBytes  27.1 Mbits/sec    0    413 KBytes       
+[  8]  12.00-13.00  sec  3.48 MBytes  29.2 Mbits/sec    0    427 KBytes       
+[  8]  13.00-14.00  sec  4.41 MBytes  37.0 Mbits/sec    0    440 KBytes       
+[  8]  14.00-14.93  sec  25.6 MBytes   232 Mbits/sec    0    515 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+Test Complete. Summary Results:
+[ ID] Interval           Transfer     Bitrate         Retr
+[  8]   0.00-14.93  sec   101 MBytes  56.6 Mbits/sec   16             sender
+[  8]   0.00-15.00  sec  98.3 MBytes  55.0 Mbits/sec                  receiver
+CPU Utilization: local/sender 0.9% (0.1%u/0.7%s), remote/receiver 2.0% (0.2%u/1.8%s)
+snd_tcp_congestion dctcp
+rcv_tcp_congestion dctcp
+
+iperf Done.

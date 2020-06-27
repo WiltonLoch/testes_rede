@@ -20,27 +20,27 @@ class Testes:
 
     @staticmethod
     def emitir_sl_paralelos(rede, cargas, caminho, portas_escolhidas, portas_em_uso, alocacoes, politica, matrizPulos):
+        print("total cargas: ", len(cargas))
+        tempo_escalonamento = 0
         for i in range(len(cargas)):
-            if alocacoes:
-                del alocacoes[0]
-            # if i % 3 == 0:
-            #     top_command = 'top -n 1 -b'
-            #     for j in alocacoes:
-            #         top_command += ' -p%s' % j[-1]
+            tempo_inicial = time.time()
+            if i % 6 == 0:
+                top_command = 'top -n 1 -b'
+                for j in alocacoes:
+                    top_command += ' -p%s' % j[-1]
 
-            #     saida_top = subprocess.Popen(top_command.split(), stdout = subprocess.PIPE, stderr = subprocess.STDOUT).communicate() 
-            #     saida_top = [str(x).split()[1] for x in saida_top[-2].splitlines()[7:]]
-            #     removiveis = []
-            #     for j in alocacoes:
-            #         if str(j[3]) not in saida_top:
-            #             removiveis.append(j)
+                saida_top = subprocess.Popen(top_command.split(), stdout = subprocess.PIPE, stderr = subprocess.STDOUT).communicate() 
+                saida_top = [str(x).split()[1] for x in saida_top[-2].splitlines()[7:]]
+                removiveis = []
+                for j in alocacoes:
+                    if str(j[3]) not in saida_top:
+                        removiveis.append(j)
 
-            #     for j in removiveis:
-            #         alocacoes.remove(j)
+                for j in removiveis:
+                    alocacoes.remove(j)
 
-            # tempo_inicial = time.time()
             escalonamento = politica(rede, cargas[i], alocacoes, matrizPulos)
-            # print("tempo de escalonamento: ", time.time() - tempo_inicial)
+            tempo_escalonamento += time.time() - tempo_inicial
             origem, destino = escalonamento[0], escalonamento[1]
             if(len(portas_escolhidas) != 0):
                 porta = portas_escolhidas[-1] + 1
@@ -54,7 +54,7 @@ class Testes:
                 comando_servidor = 'socat -u TCP-LISTEN:' + str(porta) + ',reuseaddr FILE:/dev/null'
                 comando_cliente = 'sleep 0.5 && tail -c ' + cargas[i] + ' data | socat -lf ' + caminho + '/%s_' % i + cargas[i] + ' -lu -ddd -u stdin TCP-CONNECT:%s:%s' % (rede.hosts[destino].IP(), porta)
             else:
-                comando_servidor = 'iperf3 --server -p ' + str(porta) + ' --one-off'
+                comando_servidor = 'iperf3 --server --one-off -p ' + str(porta)
                 comando_cliente = 'sleep 0.5 && iperf3 --client %s' % rede.hosts[destino].IP() + ' -p ' + str(porta) + ' --verbose --bytes ' + cargas[i] + ' --logfile ' + caminho + '/%s_' % i + cargas[i]
             #print(comando_servidor, comando_cliente)
 
@@ -62,6 +62,7 @@ class Testes:
             processo = rede.hosts[origem].popen(comando_cliente.split(), shell = True)
 
             alocacoes.append((cargas[i], origem, destino, processo.pid))
+        print(tempo_escalonamento)
 
     @staticmethod
     def emitir_sl(rede, carga, origem, destino):
