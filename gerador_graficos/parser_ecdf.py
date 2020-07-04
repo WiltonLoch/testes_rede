@@ -64,7 +64,7 @@ def extrairTempos():
 
 def plotarResultados(tempos, curva_x, curva_y):
     # plt.plot(curva_x, curva_y)
-    cargas = ['1K', '10K', '100K', '1M', '10M', '250M', '500M', '750M', '1G']
+    cargas = ['1K', '10K', '100K', '1M', '10M', '100M']
     for i in cargas:
         pontos_y = [] 
         for j in curva_x:
@@ -72,10 +72,16 @@ def plotarResultados(tempos, curva_x, curva_y):
                 for k in tempos[i, j]:
                     pontos_y.append(float(k))
         plt.plot(np.sort(pontos_y), np.arange(1, len(pontos_y) + 1)/len(pontos_y), label = i)
-        if i == '10M':
+        if i == '100K':
+            plt.title("CDF of FCT - Network-aware Scheduling")
+            plt.xlabel("Time(s)")
+            plt.ylabel("CDF")
             plt.legend()
             plt.savefig('ecdf_leves.png') 
             plt.clf()
+    plt.title("CDF of FCT - Link-aware Scheduling")
+    plt.xlabel("Time(s)")
+    plt.ylabel("CDF")
     plt.legend()
     plt.savefig('ecdf_pesadas.png') 
 
