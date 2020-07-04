@@ -19,10 +19,11 @@ class Testes:
             h.cmd("stress-ng -t 8 -c 1 -l %s &" % carga)
 
     @staticmethod
-    def emitir_sl_paralelos(rede, cargas, caminho, portas_escolhidas, portas_em_uso, alocacoes, politica, matrizPulos):
+    def emitir_sl_paralelos(rede, cargas, caminho, portas_escolhidas, portas_em_uso, batchProcess, politica, alocacoes, matrizPulos):
         # print("total cargas: ", len(cargas))
         # tempo_escalonamento = 0
-        escalonamento = politica(rede, cargas, alocacoes, matrizPulos)
+        batchProcess(cargas)
+        print(cargas)
         for i in range(len(cargas)):
             # tempo_inicial = time.time()
             if i % 6 == 0:
@@ -40,8 +41,9 @@ class Testes:
                 for j in removiveis:
                     alocacoes.remove(j)
 
+            escalonamento = politica(rede, cargas[i], alocacoes, matrizPulos)
             # tempo_escalonamento += time.time() - tempo_inicial
-            origem, destino = escalonamento[i][0], escalonamento[i][1]
+            origem, destino = escalonamento[0], escalonamento[1]
             if(len(portas_escolhidas) != 0):
                 porta = portas_escolhidas[-1] + 1
             else:
