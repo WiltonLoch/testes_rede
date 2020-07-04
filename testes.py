@@ -20,10 +20,11 @@ class Testes:
 
     @staticmethod
     def emitir_sl_paralelos(rede, cargas, caminho, portas_escolhidas, portas_em_uso, alocacoes, politica, matrizPulos):
-        print("total cargas: ", len(cargas))
-        tempo_escalonamento = 0
+        # print("total cargas: ", len(cargas))
+        # tempo_escalonamento = 0
+        escalonamento = politica(rede, cargas, alocacoes, matrizPulos)
         for i in range(len(cargas)):
-            tempo_inicial = time.time()
+            # tempo_inicial = time.time()
             if i % 6 == 0:
                 top_command = 'top -n 1 -b'
                 for j in alocacoes:
@@ -39,9 +40,8 @@ class Testes:
                 for j in removiveis:
                     alocacoes.remove(j)
 
-            escalonamento = politica(rede, cargas[i], alocacoes, matrizPulos)
-            tempo_escalonamento += time.time() - tempo_inicial
-            origem, destino = escalonamento[0], escalonamento[1]
+            # tempo_escalonamento += time.time() - tempo_inicial
+            origem, destino = escalonamento[i][0], escalonamento[i][1]
             if(len(portas_escolhidas) != 0):
                 porta = portas_escolhidas[-1] + 1
             else:
@@ -62,7 +62,7 @@ class Testes:
             processo = rede.hosts[origem].popen(comando_cliente.split(), shell = True)
 
             alocacoes.append((cargas[i], origem, destino, processo.pid))
-        print(tempo_escalonamento)
+        # print(tempo_escalonamento)
 
     @staticmethod
     def emitir_sl(rede, carga, origem, destino):

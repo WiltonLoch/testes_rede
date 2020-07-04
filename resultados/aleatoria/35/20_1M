@@ -1,0 +1,20 @@
+iperf 3.7
+Linux wilton 5.7.2-arch1-1 #1 SMP PREEMPT Wed, 10 Jun 2020 20:36:24 +0000 x86_64
+Time: Sat, 04 Jul 2020 18:13:11 GMT
+Connecting to host 10.0.0.12, port 1622
+      Cookie: qpmlh4txw7v5su7bg3lxmjxvi3ugcenncyde
+      TCP MSS: 1448 (default)
+[  8] local 10.0.0.4 port 47628 connected to 10.0.0.12 port 1622
+Starting Test: protocol: TCP, 1 streams, 131072 byte blocks, omitting 0 seconds, 1048576 bytes to send, tos 0
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  8]   0.00-0.85   sec  1.21 MBytes  11.9 Mbits/sec    0    188 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+Test Complete. Summary Results:
+[ ID] Interval           Transfer     Bitrate         Retr
+[  8]   0.00-0.85   sec  1.21 MBytes  11.9 Mbits/sec    0             sender
+[  8]   0.00-1.03   sec   361 KBytes  2.85 Mbits/sec                  receiver
+CPU Utilization: local/sender 3.4% (0.1%u/3.3%s), remote/receiver 0.1% (0.0%u/0.1%s)
+snd_tcp_congestion dctcp
+rcv_tcp_congestion dctcp
+
+iperf Done.
