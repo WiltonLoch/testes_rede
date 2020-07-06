@@ -9,14 +9,11 @@ import random
 class Politicas:
     @staticmethod
     def aleatoria(rede, cargas, alocacoes, matrizPulos):
-        escalonamento = []
-        for carga in cargas:
-            origem = random.randrange(len(rede.hosts))
+        origem = random.randrange(len(rede.hosts))
+        destino = random.randrange(len(rede.hosts))
+        while(destino == origem):
             destino = random.randrange(len(rede.hosts))
-            while(destino == origem):
-                destino = random.randrange(len(rede.hosts))
-            escalonamento.append((origem, destino))
-        return escalonamento
+        return (origem, destino)
 
     @staticmethod
     def menorPuloLivre(rede, cargas, alocacoes, matrizPulos):
