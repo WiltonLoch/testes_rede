@@ -23,7 +23,6 @@ class Testes:
         # print("total cargas: ", len(cargas))
         # tempo_escalonamento = 0
         batchProcess(cargas)
-        print(cargas)
         for i in range(len(cargas)):
             # tempo_inicial = time.time()
             if i % 6 == 0:
