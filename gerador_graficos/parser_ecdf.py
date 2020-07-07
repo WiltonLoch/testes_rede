@@ -9,6 +9,10 @@ import time
 import math
 import random
 
+import sys
+sys.path.append("/files/testes_rede")
+from BatchProcess import BatchProcessing
+
 def parseIperf(indice, indice_interno, carga):
     entrada = open("../dados_brutos/%s/%s_" % (indice, indice_interno) + carga, "r")
     if entrada.mode != 'r':
@@ -52,6 +56,7 @@ def extrairTempos():
     curva_y = []
     tempos = defaultdict(list) 
     for i in range(quantidade_testes):
+        BatchProcessing.sjf(arquivos[i])
         curva_y.append(len(arquivos[i]))
         for j in range(len(arquivos[i])):
             carga_atual = arquivos[i][j]
@@ -73,13 +78,13 @@ def plotarResultados(tempos, curva_x, curva_y):
                     pontos_y.append(float(k))
         plt.plot(np.sort(pontos_y), np.arange(1, len(pontos_y) + 1)/len(pontos_y), label = i)
         if i == '100K':
-            plt.title("CDF of FCT - Network-aware Scheduling")
+            plt.title("CDF of FCT - Network-aware Scheduling with SJF")
             plt.xlabel("Time(s)")
             plt.ylabel("CDF")
             plt.legend()
             plt.savefig('ecdf_leves.png') 
             plt.clf()
-    plt.title("CDF of FCT - Link-aware Scheduling")
+    plt.title("CDF of FCT - Network-aware Scheduling with SJF")
     plt.xlabel("Time(s)")
     plt.ylabel("CDF")
     plt.legend()

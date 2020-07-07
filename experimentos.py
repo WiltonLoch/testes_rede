@@ -9,7 +9,7 @@ from topologia import arvoreMultiNos
 from testes import Testes
 from collections import defaultdict
 from politicasEscalonamento import Politicas
-from batchProcess import BatchProcessing
+from BatchProcess import BatchProcessing
 
 from datetime import timedelta
 from pathlib import Path
