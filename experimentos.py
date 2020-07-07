@@ -65,10 +65,10 @@ def experimento():
         i.cmd("sysctl -w net.ipv4.tcp_congestion_control=dctcp; sysctl -w net.ipv4.tcp_ecn=1")
 
     dumpNodeConnections(rede.hosts);
-    # for i in range(len(rede.hosts)):
-    #     for j in range(i + 1, len(rede.hosts)):
-    #         print("h%s <-> h%s -- " % (i, j), end = "")
-    #         print(Testes.emitir_sl(rede, '1K', i, j))
+    for i in range(len(rede.hosts)):
+        for j in range(i + 1, len(rede.hosts)):
+            print("h%s <-> h%s -- " % (i, j), end = "")
+            print(Testes.emitir_sl(rede, '1K', i, j))
 
     matrizPulos = construirMatrizPulos(rede)
     entrada = open("config/casos_teste", "r") 
@@ -91,9 +91,9 @@ def experimento():
        Path(caminho).mkdir(parents = True, exist_ok = True)  
        print("Disparando grupo ", i)
        tempo_inicial = time.time()
-       Testes.emitir_sl_paralelos(rede, casos_teste[i].split(), caminho, portas_escolhidas, portas_em_uso, BatchProcessing.sjf, Politicas.aleatoria, alocacoes, matrizPulos)
+       Testes.emitir_sl_paralelos(rede, casos_teste[i].split(), caminho, portas_escolhidas, portas_em_uso, BatchProcessing.sjf, Politicas.menorPuloLivre, alocacoes, matrizPulos)
        print(time.time() - tempo_inicial)
-       time.sleep(5 - (time.time() - tempo_inicial))
+       time.sleep(10 - (time.time() - tempo_inicial))
 
 
     dumpNodeConnections(rede.hosts)

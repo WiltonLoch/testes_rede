@@ -1,0 +1,35 @@
+iperf 3.7
+Linux turbocore 5.4.0-40-generic #44-Ubuntu SMP Tue Jun 23 00:01:04 UTC 2020 x86_64
+Time: Tue, 07 Jul 2020 00:31:22 GMT
+Connecting to host 10.0.0.15, port 10033
+      Cookie: m7x4rmbab6z67bcuoly4ro4cjmyach4gtmwe
+      TCP MSS: 1448 (default)
+[  8] local 10.0.0.5 port 49458 connected to 10.0.0.15 port 10033
+Starting Test: protocol: TCP, 1 streams, 131072 byte blocks, omitting 0 seconds, 104857600 bytes to send, tos 0
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  8]   0.00-1.00   sec   372 KBytes  3.05 Mbits/sec    0   31.1 KBytes       
+[  8]   1.00-2.00   sec   178 KBytes  1.46 Mbits/sec    4   17.0 KBytes       
+[  8]   2.00-3.00   sec  0.00 Bytes  0.00 bits/sec    5   9.90 KBytes       
+[  8]   3.00-4.00   sec  67.9 KBytes   556 Kbits/sec    8   7.07 KBytes       
+[  8]   4.00-5.00   sec  2.71 MBytes  22.7 Mbits/sec    0   83.4 KBytes       
+[  8]   5.00-6.00   sec  8.33 MBytes  69.8 Mbits/sec    0    174 KBytes       
+[  8]   6.00-7.00   sec  11.2 MBytes  93.8 Mbits/sec    0    249 KBytes       
+[  8]   7.00-8.00   sec  12.2 MBytes   103 Mbits/sec    0    311 KBytes       
+[  8]   8.00-9.00   sec  3.85 MBytes  32.3 Mbits/sec    0    327 KBytes       
+[  8]   9.00-10.00  sec  7.02 MBytes  58.9 Mbits/sec    0    355 KBytes       
+[  8]  10.00-11.00  sec  2.24 MBytes  18.8 Mbits/sec    0    363 KBytes       
+[  8]  11.00-12.00  sec  1.49 MBytes  12.5 Mbits/sec    0    372 KBytes       
+[  8]  12.00-13.00  sec  2.05 MBytes  17.2 Mbits/sec    0    379 KBytes       
+[  8]  13.00-14.00  sec  3.23 MBytes  27.1 Mbits/sec    0    390 KBytes       
+[  8]  14.00-15.00  sec  24.7 MBytes   207 Mbits/sec    0    471 KBytes       
+[  8]  15.00-15.82  sec  21.3 MBytes   217 Mbits/sec    0    532 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+Test Complete. Summary Results:
+[ ID] Interval           Transfer     Bitrate         Retr
+[  8]   0.00-15.82  sec   101 MBytes  53.5 Mbits/sec   17             sender
+[  8]   0.00-15.89  sec  98.5 MBytes  52.0 Mbits/sec                  receiver
+CPU Utilization: local/sender 0.5% (0.0%u/0.5%s), remote/receiver 1.6% (0.1%u/1.5%s)
+snd_tcp_congestion dctcp
+rcv_tcp_congestion dctcp
+
+iperf Done.

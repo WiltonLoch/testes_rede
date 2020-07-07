@@ -1,0 +1,27 @@
+iperf 3.7
+Linux turbocore 5.4.0-40-generic #44-Ubuntu SMP Tue Jun 23 00:01:04 UTC 2020 x86_64
+Time: Tue, 07 Jul 2020 00:29:01 GMT
+Connecting to host 10.0.0.8, port 8761
+      Cookie: rra5u2hk2g2kqptebkbcxxxhz3daoasfsixf
+      TCP MSS: 1448 (default)
+[  8] local 10.0.0.19 port 60500 connected to 10.0.0.8 port 8761
+Starting Test: protocol: TCP, 1 streams, 131072 byte blocks, omitting 0 seconds, 104857600 bytes to send, tos 0
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  8]   0.00-1.00   sec   269 KBytes  2.20 Mbits/sec    0   56.6 KBytes       
+[  8]   1.00-2.00   sec  2.78 MBytes  23.3 Mbits/sec   18    509 KBytes       
+[  8]   2.00-3.00   sec  1.25 MBytes  10.5 Mbits/sec   82    296 KBytes       
+[  8]   3.00-4.00   sec  1.24 MBytes  10.4 Mbits/sec   48    163 KBytes       
+[  8]   4.00-5.00   sec  11.1 MBytes  92.8 Mbits/sec    0    238 KBytes       
+[  8]   5.00-6.00   sec  21.1 MBytes   177 Mbits/sec    0    346 KBytes       
+[  8]   6.00-7.00   sec  30.6 MBytes   256 Mbits/sec    0    455 KBytes       
+[  8]   7.00-7.86   sec  32.9 MBytes   322 Mbits/sec    0    549 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+Test Complete. Summary Results:
+[ ID] Interval           Transfer     Bitrate         Retr
+[  8]   0.00-7.86   sec   101 MBytes   108 Mbits/sec  148             sender
+[  8]   0.00-7.87   sec  98.1 MBytes   105 Mbits/sec                  receiver
+CPU Utilization: local/sender 2.1% (0.1%u/2.0%s), remote/receiver 1.7% (0.1%u/1.6%s)
+snd_tcp_congestion dctcp
+rcv_tcp_congestion dctcp
+
+iperf Done.
