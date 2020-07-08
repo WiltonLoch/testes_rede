@@ -1,0 +1,15 @@
+2020/07/08 16:44:09.277689 socat[2498196] I socat by Gerhard Rieger and contributors - see www.dest-unreach.org
+2020/07/08 16:44:09.277777 socat[2498196] I This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit. (http://www.openssl.org/)
+2020/07/08 16:44:09.277784 socat[2498196] I This product includes software written by Tim Hudson (tjh@cryptsoft.com)
+2020/07/08 16:44:09.277800 socat[2498196] N using stdin for reading
+2020/07/08 16:44:09.277828 socat[2498196] N opening connection to AF=2 10.0.0.19:15653
+2020/07/08 16:44:09.277834 socat[2498196] I starting connect loop
+2020/07/08 16:44:09.277845 socat[2498196] I socket(2, 1, 6) -> 8
+2020/07/08 16:44:11.029011 socat[2498196] N successfully connected from local address AF=2 10.0.0.5:35182
+2020/07/08 16:44:11.029033 socat[2498196] I resolved and opened all sock addresses
+2020/07/08 16:44:11.029045 socat[2498196] N starting data transfer loop with FDs [0,0] and [8,8]
+2020/07/08 16:44:11.029083 socat[2498196] I transferred 1024 bytes from 0 to 8
+2020/07/08 16:44:11.029095 socat[2498196] N socket 1 (fd 0) is at EOF
+2020/07/08 16:44:11.029100 socat[2498196] I shutdown(8, 1)
+2020/07/08 16:44:11.029115 socat[2498196] I shutdown(8, 2)
+2020/07/08 16:44:11.029122 socat[2498196] N exiting with status 0

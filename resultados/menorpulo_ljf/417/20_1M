@@ -1,0 +1,20 @@
+iperf 3.7
+Linux turbocore 5.4.0-40-generic #44-Ubuntu SMP Tue Jun 23 00:01:04 UTC 2020 x86_64
+Time: Wed, 08 Jul 2020 18:47:06 GMT
+Connecting to host 10.0.0.7, port 23014
+      Cookie: vex3mq36ia4l4s36hjugdi5qemd6ylo2gniy
+      TCP MSS: 1448 (default)
+[  8] local 10.0.0.6 port 33282 connected to 10.0.0.7 port 23014
+Starting Test: protocol: TCP, 1 streams, 131072 byte blocks, omitting 0 seconds, 1048576 bytes to send, tos 0
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  8]   0.00-0.08   sec  1.07 MBytes   107 Mbits/sec    0   14.1 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+Test Complete. Summary Results:
+[ ID] Interval           Transfer     Bitrate         Retr
+[  8]   0.00-0.08   sec  1.07 MBytes   107 Mbits/sec    0             sender
+[  8]   0.00-0.18   sec  14.1 KBytes   645 Kbits/sec                  receiver
+CPU Utilization: local/sender 12.5% (0.0%u/12.5%s), remote/receiver 0.1% (0.1%u/0.1%s)
+snd_tcp_congestion dctcp
+rcv_tcp_congestion dctcp
+
+iperf Done.
