@@ -1,0 +1,33 @@
+iperf 3.7
+Linux turbocore 5.4.0-37-generic #41-Ubuntu SMP Wed Jun 3 18:57:02 UTC 2020 x86_64
+Time: Sat, 27 Jun 2020 07:20:30 GMT
+Connecting to host 10.0.0.18, port 9886
+      Cookie: 4sfrlj5di3evtpif2bix2dzba2e4w6dieuot
+      TCP MSS: 1448 (default)
+[  8] local 10.0.0.7 port 43704 connected to 10.0.0.18 port 9886
+Starting Test: protocol: TCP, 1 streams, 131072 byte blocks, omitting 0 seconds, 104857600 bytes to send, tos 0
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  8]   0.00-1.00   sec   714 KBytes  5.85 Mbits/sec    1   42.4 KBytes       
+[  8]   1.00-2.00   sec   382 KBytes  3.13 Mbits/sec    0   49.5 KBytes       
+[  8]   2.00-3.00   sec  1.43 MBytes  12.0 Mbits/sec    0   80.6 KBytes       
+[  8]   3.00-4.00   sec  7.77 MBytes  65.2 Mbits/sec    0    167 KBytes       
+[  8]   4.00-5.00   sec  17.8 MBytes   149 Mbits/sec    0    279 KBytes       
+[  8]   5.00-6.00   sec  8.45 MBytes  70.9 Mbits/sec    3    317 KBytes       
+[  8]   6.00-7.00   sec  5.41 MBytes  45.3 Mbits/sec    0    342 KBytes       
+[  8]   7.00-8.00   sec  2.80 MBytes  23.5 Mbits/sec    0    354 KBytes       
+[  8]   8.00-9.00   sec  3.11 MBytes  26.1 Mbits/sec    0    365 KBytes       
+[  8]   9.00-10.00  sec  3.98 MBytes  33.4 Mbits/sec    0    382 KBytes       
+[  8]  10.00-11.00  sec  2.55 MBytes  21.4 Mbits/sec    0    390 KBytes       
+[  8]  11.00-12.00  sec  3.23 MBytes  27.1 Mbits/sec    0    402 KBytes       
+[  8]  12.00-13.00  sec  20.6 MBytes   173 Mbits/sec    0    469 KBytes       
+[  8]  13.00-13.56  sec  22.4 MBytes   333 Mbits/sec    0    532 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+Test Complete. Summary Results:
+[ ID] Interval           Transfer     Bitrate         Retr
+[  8]   0.00-13.56  sec   101 MBytes  62.2 Mbits/sec    4             sender
+[  8]   0.00-13.61  sec  97.9 MBytes  60.4 Mbits/sec                  receiver
+CPU Utilization: local/sender 0.7% (0.1%u/0.7%s), remote/receiver 1.7% (0.1%u/1.6%s)
+snd_tcp_congestion dctcp
+rcv_tcp_congestion dctcp
+
+iperf Done.

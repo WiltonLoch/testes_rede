@@ -13,10 +13,10 @@ import sys
 sys.path.append("/files/testes_rede")
 from BatchProcess import BatchProcessing
 
-def parseIperf(indice, indice_interno, carga):
-    entrada = open("../dados_brutos/%s/%s_" % (indice, indice_interno) + carga, "r")
+def parseIperf(folder, indice, indice_interno, carga):
+    entrada = open("../resultados/" + folder + "/%s/%s_" % (indice, indice_interno) + carga, "r")
     if entrada.mode != 'r':
-        print("Não foi possível abrir o arquivo %s/%s_" % (indice, indice_interno) + carga)
+        print("Não foi possível abrir o arquivo resultados/" + folder + "%s/%s_" % (indice, indice_interno) + carga)
         return
     tempos = entrada.read()
     entrada.close()
@@ -24,10 +24,10 @@ def parseIperf(indice, indice_interno, carga):
     tempos = tempos.split()[2].split('-')[1]
     return tempos
 
-def parseSocat(indice, indice_interno, carga):
-    entrada = open("../dados_brutos/%s/%s_" % (indice, indice_interno) + carga, "r")
+def parseSocat(folder, indice, indice_interno, carga):
+    entrada = open("../resultados/" + folder + "/%s/%s_" % (indice, indice_interno) + carga, "r")
     if entrada.mode != 'r':
-        print("Não foi possível abrir o arquivo %s/%s_" % (indice, indice_interno) + carga)
+        print("Não foi possível abrir o arquivo resultados/" + folder + "%s/%s_" % (indice, indice_interno) + carga)
         return
     tempos = entrada.read()
     entrada.close()
@@ -48,28 +48,52 @@ def extrairTempos():
     if entrada.mode != 'r':
         print("Não foi possível abrir o arquivo com os casos de teste")
         return
-    arquivos = entrada.read().splitlines()
+
+    cargas = ['1K', '10K', '100K', '1M', '10M', '100M']
+    queue_ordering = ['fcfs', 'sjf', 'ljf']
+    scheduling = ['random', 'netaware']
+
+    test_cases = entrada.read().splitlines()
     entrada.close()
-    quantidade_testes = len(arquivos)
-    arquivos = [x.split() for x in arquivos]
-    curva_x = np.arange(0, quantidade_testes, 1);
-    curva_y = []
+    
+    test_cases = [x.split() for x in test_cases]
+    test_quantity = len(test_cases)
     tempos = defaultdict(list) 
-    for i in range(quantidade_testes):
-        BatchProcessing.sjf(arquivos[i])
-        curva_y.append(len(arquivos[i]))
-        for j in range(len(arquivos[i])):
-            carga_atual = arquivos[i][j]
-            if(carga_atual[-1] != 'K'):
-                tempo_atual = parseIperf(i, j, carga_atual)
-            else:
-                tempo_atual = parseSocat(i, j, carga_atual)
-            tempos[(carga_atual, i)].append(tempo_atual)
-    plotarResultados(tempos, curva_x, curva_y)
+    for queue_policy in queue_ordering:
+        for discipline in scheduling:
+            folder = discipline + '_' + queue_policy
+            for batch in range(test_quantity):
+                if queue_policy == 'sjf':
+                    BatchProcessing.sjf(test_cases[batch])
+                if queue_policy == 'ljf':
+                    BatchProcessing.ljf(test_cases[batch])
+                for flow_index in range(len(test_cases[batch])):
+                    flow = test_cases[batch][flow_index]
+                    if flow[-1] != 'K':
+                        result_time = parseIperf(folder, batch, flow_index, flow)
+                    else:
+                        result_time = parseSocat(folder, batch, flow_index, flow)
+                    tempos[(flow, folder)].append(float(result_time))
+    for flow_size in cargas:
+        plotLoadResults(tempos, flow_size)
+
+def plotLoadResults(times, flow_size):
+    queue_ordering = ['fcfs', 'sjf', 'ljf']
+    scheduling = ['random', 'netaware']
+    y_points = [] 
+    for discipline in scheduling:
+        for queue_policy in queue_ordering:
+            folder = discipline + '_' + queue_policy
+            plt.plot(np.sort(times[flow_size, folder]), np.arange(1, len(times[flow_size, folder]) + 1)/len(times[flow_size, folder]), label = folder)
+    plt.title("CDF of FCT - " + flow_size + "B flow size")
+    plt.xlabel("Time(s)")
+    plt.ylabel("CDF")
+    plt.legend()
+    plt.savefig(flow_size + '.png') 
+    plt.clf()
 
 def plotarResultados(tempos, curva_x, curva_y):
     # plt.plot(curva_x, curva_y)
-    cargas = ['1K', '10K', '100K', '1M', '10M', '100M']
     for i in cargas:
         pontos_y = [] 
         for j in curva_x:

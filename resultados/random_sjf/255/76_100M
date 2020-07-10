@@ -1,0 +1,31 @@
+iperf 3.7
+Linux turbocore 5.4.0-40-generic #44-Ubuntu SMP Tue Jun 23 00:01:04 UTC 2020 x86_64
+Time: Tue, 07 Jul 2020 00:29:51 GMT
+Connecting to host 10.0.0.16, port 9197
+      Cookie: kisv3z3kanazobgeeqdriisppqt4ug2ek7ka
+      TCP MSS: 1448 (default)
+[  8] local 10.0.0.2 port 57980 connected to 10.0.0.16 port 9197
+Starting Test: protocol: TCP, 1 streams, 131072 byte blocks, omitting 0 seconds, 104857600 bytes to send, tos 0
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  8]   0.00-1.00   sec   185 KBytes  1.52 Mbits/sec    0   19.8 KBytes       
+[  8]   1.00-2.00   sec   153 KBytes  1.25 Mbits/sec    6   18.4 KBytes       
+[  8]   2.00-3.00   sec   206 KBytes  1.69 Mbits/sec    0   31.1 KBytes       
+[  8]   3.00-4.00   sec  1.06 MBytes  8.86 Mbits/sec    0   59.4 KBytes       
+[  8]   4.00-5.00   sec  2.92 MBytes  24.5 Mbits/sec    0    106 KBytes       
+[  8]   5.00-6.00   sec  7.08 MBytes  59.4 Mbits/sec    0    174 KBytes       
+[  8]   6.00-7.00   sec  17.6 MBytes   148 Mbits/sec    0    284 KBytes       
+[  8]   7.00-8.00   sec  21.3 MBytes   178 Mbits/sec    0    376 KBytes       
+[  8]   8.00-9.00   sec  7.08 MBytes  59.4 Mbits/sec    0    402 KBytes       
+[  8]   9.00-10.00  sec  4.97 MBytes  41.7 Mbits/sec    0    420 KBytes       
+[  8]  10.00-11.00  sec  22.3 MBytes   187 Mbits/sec    0    489 KBytes       
+[  8]  11.00-11.57  sec  15.8 MBytes   231 Mbits/sec    0    532 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+Test Complete. Summary Results:
+[ ID] Interval           Transfer     Bitrate         Retr
+[  8]   0.00-11.57  sec   101 MBytes  72.9 Mbits/sec    6             sender
+[  8]   0.00-11.59  sec  98.1 MBytes  71.0 Mbits/sec                  receiver
+CPU Utilization: local/sender 1.0% (0.1%u/1.0%s), remote/receiver 1.7% (0.1%u/1.6%s)
+snd_tcp_congestion dctcp
+rcv_tcp_congestion dctcp
+
+iperf Done.
